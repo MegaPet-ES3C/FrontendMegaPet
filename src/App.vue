@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary">
+    <v-app-bar app color="info">
       <v-app-bar-title>Megapet</v-app-bar-title>
       <v-spacer></v-spacer>
       <router-link
