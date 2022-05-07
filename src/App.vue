@@ -1,13 +1,13 @@
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import NuevoForm from "./components/NuevoForm.vue";
 export default {
-  components: { HelloWorld }
+  components: { NuevoForm }
 };
 </script>
 
 <template>
   <div>
-    <hello-world></hello-world>
+    <nuevo-form></nuevo-form>
   </div>
 </template>
 
