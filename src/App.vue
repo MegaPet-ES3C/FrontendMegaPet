@@ -34,7 +34,7 @@ export default {
       drawer: false,
       items: [
         { label: "Home", to: "/home" },
-        { label: "Profile", to: "/home" },
+        { label: "Profile", to: "/form" },
         { label: "Search", to: "/search" },
         { label: "Log Out", to: "/home" },
       ],

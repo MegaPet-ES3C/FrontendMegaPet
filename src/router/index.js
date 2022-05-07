@@ -16,6 +16,11 @@ const router = createRouter({
       path: "/search",
       name: "search",
       component: () => import("../pet/pages/search-list.component.vue"),
+    },
+    {
+      path: "/form",
+      name: "form",
+      component: () => import("../pet/pages/form-list.component.vue")
     }
   ],
 });
