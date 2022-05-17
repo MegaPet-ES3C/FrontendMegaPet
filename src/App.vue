@@ -1,34 +1,20 @@
 
 <template>
-  <v-app>
-    <v-app-bar app color="info">
-      <v-app-bar-title>Megapet</v-app-bar-title>
-      <v-spacer></v-spacer>
-      <router-link
-        v-for="item in items"
-        :to="item.to"
-        custom
-        v-slot="{ navigate, href }"
-        :key="item.label"
-      >
-        <v-btn :href="href" @click="navigate">
-          {{ item.label }}
-        </v-btn>
-      </router-link>
-    </v-app-bar>
-    <v-main>
-      <v-container fluid>
-        <router-view />
-      </v-container>
-    </v-main>
-  </v-app>
-
+  <pv-toolbar class="bg-blue-500">
+    <template #end>
+      <div>
+        <router-link v-for="item in items" :to="item.to" custom v-slot="{ navigate, href }" :key="item.label">
+          <pv-button class="p-button-text text-white" :href="href" @click="navigate">{{ item.label }}</pv-button>
+        </router-link>
+      </div>
+    </template>
+  </pv-toolbar>
+  <RouterView />
 </template>
 
 <script>
 export default {
   name: "App",
-
   data() {
     return {
       drawer: false,
