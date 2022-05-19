@@ -20,7 +20,7 @@
 
             <pv-input-text id="password" type="password" placeHolder="Password" />
           </div>
-          <pv-button label="Login"></pv-button>
+          <pv-button label="Login" @click="openNext"></pv-button>
         </div>
 
       </div>
@@ -41,7 +41,11 @@
 
 export default {
   name: "HomeFView",
-
+  methods: {
+    openNext() {
+      this.$router.push("/user");
+    }
+  }
 };
 </script>
 

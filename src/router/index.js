@@ -24,6 +24,7 @@ const router = createRouter({
     {
       path: "/user",
       component: () => import("../user/pages/navigation-section.component.vue"),
+      redirect: "Search",
       children: [
         {
           path: "/profile",
