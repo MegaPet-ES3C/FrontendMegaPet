@@ -3,7 +3,7 @@
     {
       "id": 1,
       "code": "f230fh0g3",
-      "name": "Bamboo Watch",
+      "name": "Punpa Watch",
       "description": "Product Description",
       "image": "src/assets/pet(1).jpg",
       "price": 65,
@@ -167,9 +167,20 @@
       "name": "Miguel Tucto",
       "lastName": "Rivera",
       "phone": "(051) 918-514-737",
+      "image": "src/assets/user(4).jpg",
       "email": "tucto32@gmail.com",
       "password": "Miguel32",
       "birthday": "2022-05-01T05:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "name": "Fernnafloo",
+      "lastName": "Chorizo",
+      "phone": "(051) 987-716-455",
+      "image": "src/assets/user(4).jpg",
+      "email": "FernanChorizo31@gmail.com",
+      "password": "Mierdamierda123#",
+      "birthday": "2021-08-03T23:00:00.000Z"
     }
   ],
   "countries": [

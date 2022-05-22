@@ -1,6 +1,7 @@
 <template>
   <div class="card">
     <pv-data-view :value="pets" :layout="layout" :paginator="true" :rows="9" :sortOrder="sortOrder" :sortField="sortField">
+      <!-- acctions Buttons-->
       <template #header>
         <div class="grid grid-gutter">
           <div class="col-6" style="text-align: left">
@@ -54,7 +55,7 @@
           </div>
         </div>
       </template>
-
+      <!-- Adopt Form-->
     </pv-data-view>
     <pv-dialog header="Confirm" v-model:visible="displayInformation" :style="{width: '450px'}" :modal="true">
       <p class="m-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
