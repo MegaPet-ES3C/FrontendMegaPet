@@ -1,41 +1,50 @@
 <template>
   <div class="card">
-    <pv-data-view :value="users" :layout="layout" :paginator="true" :rows="9">
+    <pv-data-view :value="users" :layout="layout" :paginator="false" :rows="9">
 
-      <template #list="slotUsers">
-        <div class="col-12">
-          <div class="UsersList">
-            <img :src='slotUsers.data.image' style="width:5rem"/>
-            <div class="User-list-detail">
-              <div class="User-Name">
-                {{slotUsers.data.name}}
+      <template #grid="slotUsers">
+
+        <!-- nuevo -->
+
+        <div class="perfil">
+          <div class="card_header">
+            <div class="imagen">
+              <img :src='slotUsers.data.image' style="width:5rem"/>
+            </div>
+            <div>
+              <div class="nombre"> {{slotUsers.data.name}} </div>
+              <div class="descripcion"> {{slotUsers.data.lastName}}</div>
+              <div class="elementos">
+                <a href="" class="pi pi-facebook"></a>
+                <a href="" class="pi pi-twitter"></a>
+                <a href="" class="pi pi-github"></a>
+                <a href="" class="pi pi-youtube"></a>
+              </div>
+              <div>
+                <a href="" class="contact-me">Contactame</a>
+              </div>
+              <div class="card_footer">
+                <div class="numbers">
+                  <div class="item">
+                    <span>120</span> Seguidos
+                  </div>
+                  <div class="item">
+                    <span>127</span> Seguidores
+                  </div>
+                  <div class="item">
+                    <span>220</span> Publicaciones
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </template>
 
-      <template #grid="slotUsers">
-          <div class="product-grid-item card">
-            <div class="product-grid-item-top">
-            </div>
-            <div class="product-grid-item-content">
-              <img :src='slotUsers.data.image' style="width:5rem"/>
-              <div class="User-name">{{slotUsers.data.name}}</div>
-              <div class="User-Lastname">{{slotUsers.data.lastName}}</div>
-              <div class="pi pi-angle-up">
-                <div class="User-Phone">Phone: {{slotUsers.data.phone}}</div>
-              </div>
-              <div class="User-Email">Email: {{slotUsers.data.email}}</div>
-            </div>
-          </div>
+
       </template>
 
     </pv-data-view>
-
   </div>
-
-
 </template>
 
 <script>
@@ -64,37 +73,117 @@ export default {
 
 <style scoped>
 
-.UsersList{
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+.body{
+  heigh: 100vh;
+  background: url(../src/assets/logo.svg);
+  background-size: cover;
   display: flex;
-  align-items: center;
-  padding: 1rem;
-  width: 100%;
+  align-items:center;
+  justify-content:center;
 }
-
-.card{
-  background: #f2f2f2;
-  panding: 2rem;
-  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
-  border-radius: 4px;
-  margin-bottom: 2rem;
+.perfil{
+  width:400px;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
 }
-
-.User-name{
-  font-size: 1.5rem;
-  font-weight:500;
+.card_header {
+  background: #2c3e50;
+  padding: 60px 40px;
 }
-
-.User-Lastname{
+.imagen{
+  image-resolution: unset;
+  display: inline-block;
+  padding: 8px;
+  background: linear-gradient(130deg,#74b9ff,#e66767);
+  margin: auto;
+  border-radius: 50%;
+  background-size: 200% 200%;
+  animation: Animation 2s ease infinite;
+  -webkit-animation: Animation 2s ease infinite;
+  -moz-animation: Animation 2s ease infinite;
+}
+@keyframes Animation {
+  25%{
+    background-position: left bottom;
+  }
+  50%{
+    background-position: right bottom;
+  }
+  75%{
+    background-position: right top;
+  }
+  100%{
+    background-position: left top;
+  }
+}
+.imagen img{
+  display: block;
+  width: 100px;
+  heigh: 100px;
+  border-radius: 50%;
+}
+.nombre{
+  color:#ffffff;
+  font-size:28px;
   font-weight: 600;
-  vertical-align: middle;
+  margin: 10px 0;
 }
-.User-Phone{
-  font-weight: 300;
-  font-size: 0.6rem;
+.descripcion{
+  font-size: 18px;
+  color: #e66767;
 }
-.User-Email{
-  font-weight: 300;
-  font-size: 0.6rem;
+.elementos{
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+.elementos a{
+  color:#ffffff;
+  width: 56px;
+  font-size: 22px;
+  transition: .3s linear;
+}
+.elementos a:hover {
+  color: #e66767;
+}
+.contact-me{
+  display: inline-block;
+  padding: 12px 50px;
+  color: #e66767;
+  border: 2px solid #e66767;
+  border-radius: 6px;
+  margin-top: 16px;
+  transition: .3s linear;
+}
+.contact-me:hover{
+  background: #e66767;
+  color: #fff;
+}
+.card_footer{
+  background: #f4f4f4;
+  padding: 60px 10px;
+}
+.numbers{
+  display: flex;
+  text-align: center;
+}
+.item{
+  flex: 1;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #e66767;
+}
+.item span{
+  display: block;
+  color: #2c3e50;
+  font-size: 30px;
 }
 
 </style>
