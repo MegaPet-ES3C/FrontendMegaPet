@@ -35,6 +35,11 @@ const router = createRouter({
           path: "/search",
           name: "Search",
           component: () => import("../user/pages/search-section.component.vue")
+        },
+        {
+          path: "/shelter",
+          name: "Shelter",
+          component: () => import("../user/pages/shelter-section.component.vue")
         }
       ]
     }

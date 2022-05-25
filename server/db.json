@@ -172,6 +172,40 @@
       "birthday": "2022-05-01T05:00:00.000Z"
     }
   ],
+  "shelters": [
+    {
+      "id": 1,
+      "name": "Voz Animal",
+      "description": "Our mission is to sterilize street animals, as a solution to the problem of overpopulation and abandonment of these animals. That is why we carry out monthly sterilization campaigns in districts with vulnerable populations.",
+      "url": "https://www.vozanimalperu.com/albergue",
+      "image": "src/assets/vozanimal.png",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "name": "Wuf",
+      "description": "We are a non-profit association that seeks to build a better world for dogs through sustainable initiatives.",
+      "url": "https://www.wuf.pe/",
+      "image": "src/assets/wuf.png",
+      "rating": 4
+    },
+    {
+      "id": 3,
+      "name": "Animazul",
+      "description": "The Animazul shelter currently houses 43 puppies, most of them already old, and is maintained thanks to the help of the padrinoazules who contribute an amount per month. There are many needs in the shelter. On this, our website, you can learn about the puppies we care for and the ways you can help them. We invite you to see the various pages and meet our \"refugees\", perhaps you will be encouraged to sponsor them or you can provide them with a home.",
+      "url": "https://www.animazul.org/",
+      "image": "src/assets/animazul.jpg",
+      "rating": 3
+    },
+    {
+      "id": 4,
+      "name": "Proa",
+      "description":  "Be part of this beautiful initiative to help dogs and cats located in \"La casa de Doguito\" in Chorrillos. Our main task is to bring as many donations as possible to the animals that are refugees, they eagerly await to be visited. Cheer up to work with us and be able to #ChangeYourBadDays!",
+      "url": "https://proa.pe/ong/asociacion-kp/visita-el-albergue-de-chorrillos",
+      "image": "src/assets/proa.svg",
+      "rating": 3
+    }
+  ],
   "countries": [
     {
       "id": 1,
