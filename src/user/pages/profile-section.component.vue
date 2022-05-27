@@ -60,3 +60,43 @@ export default {
 
 </script>
 
+<style scoped>
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+body{
+  heigh: 100vh;
+  background: #ffffff;
+  background-size: cover;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+}
+.Profile{
+  width:400px;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.card_header {
+  background: #2c3e50;
+  padding: 60px 40px;
+}
+.Image{
+  image-resolution: unset;
+  display: inline-block;
+  padding: 8px;
+  background: linear-gradient(130deg,#74b9ff,#e66767);
+  margin: auto;
+  border-radius: 50%;
+  background-size: 200% 200%;
+  animation: Animation 2s ease infinite;
+  -webkit-animation: Animation 2s ease infinite;
+  -moz-animation: Animation 2s ease infinite;
+}
+
+</style>
