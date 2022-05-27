@@ -148,4 +148,36 @@ body{
   font-size: 30px;
 }
 
+.Image img{
+  display: block;
+  width: 100px;
+  heigh: 100px;
+  border-radius: 50%;
+}
+.UserName{
+  color:#ffffff;
+  font-size:28px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.Message-me{
+  display: inline-block;
+  padding: 12px 50px;
+  color: #e66767;
+  border: 2px solid #e66767;
+  border-radius: 6px;
+  margin-top: 16px;
+  transition: .3s linear;
+}
+.Message-me:hover{
+  background: #e66767;
+  color: #fff;
+}
+.card_footer{
+  background: #f4f4f4;
+  padding: 60px 10px;
+}
+
+
 </style>
