@@ -60,5 +60,54 @@
       "description": "Was rescue 3 months ago.",
       "image": "pet(10).jpg"
     }
-  ]
+  ],
+  "shelters": [
+    {
+      "id": 1,
+      "name": "PetLovers",
+      "phone": "(01) 4596145",
+      "image": "src/assets/shelter(1).jpg",
+      "email": "Petlover@gmail.com",
+      "password": "Example123456",
+    },
+    {
+      "id": 2,
+      "name": "AdoptPet",
+      "phone": "(01) 5422145",
+      "image": "src/assets/shelter(2).jpg",
+      "email": "AdoptPet@gmail.com",
+      "password": "Example123456",
+    },
+    {
+      "id": 3,
+      "name": "NewHome",
+      "phone": "(01) 5697145",
+      "image": "src/assets/shelter(3).jpg",
+      "email": "NewHome@gmail.com",
+      "password": "Example123456",
+    },
+    {
+      "id": 4,
+      "name": "NewFriend",
+      "phone": "(01) 4592043",
+      "image": "src/assets/shelter(4).jpg",
+      "email": "NewFriend@gmail.com",
+      "password": "Example123456",
+    },
+    {
+      "id": 5,
+      "name": "SaveLife",
+      "phone": "(01) 4663494",
+      "image": "src/assets/shelter(5).jpg",
+      "email": "Savellife@gmail.com",
+      "password": "Save132",
+    },
+    {
+      "id": 6,
+      "name": "NewHope",
+      "phone": "(01) 4887298",
+      "image": "src/assets/shelter(6).jpg",
+      "email": "Newhope231@gmail.com",
+      "password": "New321",
+    },
 }
