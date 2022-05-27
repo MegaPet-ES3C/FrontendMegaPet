@@ -99,4 +99,19 @@ body{
   -moz-animation: Animation 2s ease infinite;
 }
 
+@keyframes Animation {
+  25%{
+    background-position: left bottom;
+  }
+  50%{
+    background-position: right bottom;
+  }
+  75%{
+    background-position: right top;
+  }
+  100%{
+    background-position: left top;
+  }
+}
+
 </style>
