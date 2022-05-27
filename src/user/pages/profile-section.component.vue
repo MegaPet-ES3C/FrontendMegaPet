@@ -114,4 +114,38 @@ body{
   }
 }
 
+.UserLastname{
+  font-size: 18px;
+  color: #ffffff;
+}
+.Items{
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+.Items a{
+  color:#ffffff;
+  width: 56px;
+  font-size: 22px;
+  transition: .3s linear;
+}
+.Items a:hover {
+  color: #e66767;
+}
+.numbers{
+  display: flex;
+  text-align: center;
+}
+.item{
+  flex: 1;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #e66767;
+}
+.item span{
+  display: block;
+  color: #2c3e50;
+  font-size: 30px;
+}
+
 </style>
