@@ -1,7 +1,6 @@
 <template>
   <h1>Search Section</h1>
   <div class="card">
-
     <pv-data-view
       :value="pets"
       :layout="layout"
@@ -58,7 +57,7 @@
               >
               <pv-button
 
-                @click="openDialog"
+                @click="openSubscriptionDialog"
                 label="Help"
                 :disabled="slotProps.data.inventoryStatus === 'UNAVAILABLE'"
                 style="margin-bottom: 5px"
@@ -89,7 +88,7 @@
                 severity="success"
                 >{{ slotProps.data.inventoryStatus }}</pv-tag
               >
-              <pv-tag v-else severity="info">{{
+              <pv-tag v-else severity="warning">{{
                 slotProps.data.inventoryStatus
               }}</pv-tag>
             </div>
@@ -106,9 +105,9 @@
                 :cancel="false"
               ></pv-rating>-->
             </div>
-            <div class="product-grid-item-bottom">
+            <div class="product-grid-item-bottom mt-5">
               <span class="product-price"
-                >{{ slotProps.data.rescuedTime }} day ago</span
+              >Rescued <b style="color: #1c80cf">{{ slotProps.data.rescuedTime }}</b> days ago</span
               >
               <pv-button
                 label="Help"
@@ -121,20 +120,48 @@
       </template>
     </pv-data-view>
     <pv-dialog
-      header="Confirm"
+      header="Help Form"
       v-model:visible="displayInformation"
       :style="{ width: '450px' }"
       :modal="true"
+      class="p-fluid"
     >
-      <p class="m-0">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </p>
+      <div class="field mt-3">
+        <span class="p-float-label">
+          <pv-input-text type="text" id="name" v-model.trim="adopter.name" required="true" />
+          <label for="name"> Name </label>
+        </span>
+      </div>
+      <div class="field mt-3">
+        <span class="p-float-label">
+          <pv-input-text type="text" id="name" v-model.trim="adopter.lastName" required="true" />
+          <label for="name"> Last Name </label>
+        </span>
+      </div>
+      <div class="field mt-3">
+        <span class="p-float-label">
+          <pv-input-text type="text" id="name" v-model.trim="adopter.gender" required="true" />
+          <label for="name"> Gender </label>
+        </span>
+      </div>
+      <div class="field mt-3">
+        <span class="p-float-label">
+          <pv-input-text type="text" id="name" v-model.trim="adopter.age" required="true" />
+          <label for="name"> Age </label>
+        </span>
+      </div>
+      <div class="field mt-3">
+        <span class="p-float-label">
+          <pv-input-text type="text" id="name" v-model.trim="adopter.status" required="true" />
+          <label for="name"> Status </label>
+        </span>
+      </div>
+      <div class="field mt-3">
+        <span class="p-float-label">
+          <pv-input-text type="text" id="name" v-model.trim="adopter.description" required="true" />
+          <label for="name"> Description </label>
+        </span>
+      </div>
       <template #footer>
         <pv-button
           label="No"
@@ -145,7 +172,7 @@
         <pv-button
           label="Yes"
           icon="pi pi-check"
-          @click="hideDialog"
+          @click="openSubscriptionDialog"
           autofocus
         />
       </template>
@@ -154,6 +181,7 @@
       <div class="container">
         <div class="cards">
           <pv-card>
+
             <template #header>
               <img :src='pet.image' class="imgDescription">
             </template>
@@ -174,6 +202,7 @@
 
 <script>
 import { PetsApiService } from "../services/pets-api.service";
+import { AdoptersApiService } from "../../adopter/services/adopters-api.service";
 import {FilterMatchMode} from "primevue/api";
 
 export default {
@@ -182,7 +211,10 @@ export default {
     return {
       pets: [],
       pet: {},
+      adopter: {},
+      adopters: [],
       petsService: null,
+      adoptersService: null,
       layout: "grid",
       sortKey: null,
       sortKey2: null,
@@ -203,13 +235,31 @@ export default {
   },
   created() {
     this.petsService = new PetsApiService();
+    this.adoptersService = new AdoptersApiService();
+
     this.petsService.getAll().then((response) => {
       this.pets = response.data;
+      console.log("created");
+    });
+    this.adoptersService.getAll().then((response) => {
+      this.users = response.data;
       console.log("created");
     });
     this.initFilters();
   },
   methods: {
+    getStorableAdopter(displayableAdopter) {
+      return {
+        id: displayableAdopter.id,
+        name: displayableAdopter.name,
+        lastName: displayableAdopter.lastName,
+        gender: displayableAdopter.gender,
+        age: displayableAdopter.age,
+        status: displayableAdopter.status,
+        description: displayableAdopter.description,
+      }
+    },
+
     onSortChange(event) {
       const value = event.value.value;
       const sortValue = event.value;
@@ -244,16 +294,39 @@ export default {
     openDialog() {
       this.displayInformation = true;
     },
+    openSubscriptionDialog() {
+      if (this.adopter.name.trim()) {
+        if (this.adopter.id) {
+          this.adopter = this.getStorableAdopter(this.adopter);
+          this.adoptersService.update(this.adopter.id, this.adopter)
+        } else {
+          this.adopter.id = 0;
+          console.log(this.adopter);
+          this.adopter = this.getStorableAdopter(this.adopter);
+          this.adoptersService.create(this.adopter).then((response) => {
+            this.adopters.push(this.adopter);
+            console.log(response);
+          });
+        }
+        this.adopter = {};
+      }
+    },
     openDescription(pet) {
       console.log(pet);
       this.pet = { ...pet };
       console.log(this.pet);
       this.displayDescription = true;
     },
+    closeDescription() {
+      this.displayDescription = false;
+    },
     initFilters() {
       this.filters = {
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
       };
+    },
+    backMethod() {
+      window.history.back();
     }
   },
 };

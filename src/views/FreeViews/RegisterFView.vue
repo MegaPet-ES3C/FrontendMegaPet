@@ -1,7 +1,7 @@
 <template>
   <div class="form-demo">
     <div class="flex justify-content-center ">
-      <pv-card class="card shadow-8 " >
+      <pv-card class="card shadow-8 p-fluid" style="width: 50%">
         <template #title>
           <h2 class="text-center">Register</h2>
         </template>
@@ -57,7 +57,7 @@
           </div>
         </template>
         <template #footer>
-          <pv-button  label="Submit" class="mt-2 ml-7 p-button-rounded" @click="openDialog" />
+          <pv-button  label="Submit" class=" p-button-rounded" @click="openDialog" />
         </template>
       </pv-card>
     </div>
