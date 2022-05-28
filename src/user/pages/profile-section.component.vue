@@ -1,39 +1,96 @@
 <template>
   <body class="card">
 
-        <div class="Profile">
-          <div class="card_header">
-            <div class="Image">
-              <img :src='user.image' style="width:5rem"/>
+  <div class="Profile">
+    <div class="card_header">
+      <div class="Image">
+        <img :src='user.image' style="width:5rem"/>
+      </div>
+      <div>
+        <div class="UserName"> {{user.name}} </div>
+        <div class="UserLastname"> {{user.lastName}}</div>
+        <div class="Items">
+          <a href="https://www.facebook.com/" class="pi pi-facebook"></a>
+          <a href="https://www.instagram.com/" class="pi pi-twitter"></a>
+          <a href="https://github.com/" class="pi pi-github"></a>
+          <a href="https://youtube.com/" class="pi pi-youtube"></a>
+        </div>
+        <div>
+          <!--<a href="" class="Message-me">Edit Info</a>-->
+          <pv-button icon="pi pi-pencil" class="p-button-icon" @click="editInfo(user)"/>
+        </div>
+        <div class="card_footer">
+          <div class="numbers">
+            <div class="item">
+              <h2>Phone User: </h2>
+              <span>{{user.phone}}</span>
             </div>
-            <div>
-              <div class="UserName"> {{user.name}} </div>
-              <div class="UserLastname"> {{user.lastName}}</div>
-              <div class="Items">
-                <a href="" class="pi pi-facebook"></a>
-                <a href="" class="pi pi-twitter"></a>
-                <a href="" class="pi pi-github"></a>
-                <a href="" class="pi pi-youtube"></a>
-              </div>
-              <div>
-                <a href="" class="Message-me">My Messages</a>
-              </div>
-              <div class="card_footer">
-                <div class="numbers">
-                  <div class="item">
-                    <span>120</span> Follows
-                  </div>
-                  <div class="item">
-                    <span>127</span> Followers
-                  </div>
-                  <div class="item">
-                    <span>220</span> Posts
-                  </div>
-                </div>
-              </div>
+            <div class="item">
+              <h2>Gmail</h2>
+              <span>{{user.email}}</span>
+            </div>
+            <div class="item">
+              <h2>User Birthday</h2>
+              <span>{{user.birthday}}</span>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+
+  <pv-dialog v-model:visible="editInfoProfile" :style="{width: '650px'}" header="challenge Information" :model="true" class="p-fluid">
+
+    <div class="field mt-5">
+      <span class="p-float-label">
+        <pv-input-text type="text" id="Name" v-model.trim="user.name"
+                       required="true" autofocus :class="{'p-invalid': submitted && !user.name}"/>
+        <label for="Name">Name</label>
+      </span>
+    </div>
+
+    <div class="field mt-5">
+      <span class="p-float-label">
+        <pv-input-text type="text" id="LastName" v-model.trim="user.lastName"
+                       required="true" autofocus :class="{'p-invalid' :submitted && !user.lastName}"/>
+        <label for="LastName">LastName</label>
+      </span>
+    </div>
+
+    <div class="field mt-5">
+      <span class="p-float-label">
+        <pv-input-text type="text" id="Password" v-model.trim="user.password"
+                       required="true" autofocus :class="{'p-invalid' :submitted && !user.password}"/>
+        <label for="Password">Password</label>
+      </span>
+    </div>
+
+    <div class="field mt-5">
+      <span class="p-float-label">
+        <pv-input-text type="text" id="Birthday" v-model.trim="user.birthday"
+                       required="true" autofocus :class="{'p-invalid' :submitted && !user.birhtday}"/>
+        <label for="Birthday">Birthday</label>
+      </span>
+    </div>
+
+    <div class="field mt-5">
+      <span class="p-float-label">
+        <pv-input-text type="text" id="Phone" v-model.trim="user.phone"
+                       required="true" autofocus :class="{'p-invalid' :submitted && !user.phone}"/>
+        <label for="Phone">Phone</label>
+      </span>
+    </div>
+
+    <template #footer>
+      <pv-button :label="'Cancel'.toUpperCase()" icon="pi pi-times" class="p-button-text" @click="hideDialog" />
+      <pv-button :label="'Save'.toUpperCase()" icon="pi pi-check" class="p-button-text" @click="saveEditInfo" />
+    </template>
+
+  </pv-dialog>
+
+
+
 
   </body>
 </template>
@@ -45,22 +102,97 @@ export default {
   name: "profile-section.component",
   data() {
     return {
+      editInfoProfile:false,
+      submitted:false,
+      deleteChangeInfoProgile: false,
       user: null,
       userService: null
     };
   },
   created() {
     this.userService = new UsersApiService();
-    this.userService.getById(1).then((response) => {
+    this.userService.getById(5).then((response) => {
       this.user = response.data;
       console.log("created");
     });
   },
+
+
+  methods:{
+    editInfo(Profile){
+      console.log(Profile);
+      this.user={...Profile};
+      console.log(this.user);
+      this.editInfoProfile=true;
+    },
+    hideDialog(){
+      this.editInfoProfile=false;
+      this.submitted=false;
+    },
+    saveEditInfo(){
+      this.submitted=true;
+      if(this.user.name.trim()){
+        if(this.user.id){
+          this.user=this.getStorableUser(this.user);
+          this.userService
+            .update(this.user.id,this.user)
+            .then((response)=>{
+              this.user[this.FindIndexById(response.data.id)]=
+                this.user.id;
+              this.$toast.add({
+                severity:"success",
+                summary:"Successful",
+                detail: "change Updated",
+                life:3000,
+              });
+              console.log(response);
+            });
+        } else {
+          this.user.id=0;
+          console.log(this.user);
+          this.user=this.getStorableUser(this.user);
+          this.userService.created(this.user).then((response)=>{
+            this.user.push(this.user);
+            this.$toast.add({
+              severity:"success",
+              summary:"Successful",
+              detail: "change Updated",
+              life:3000,
+            });
+            console.log(response);
+          });
+        }
+        this.editInfoProfile=false;
+      }
+    },
+
+    getStorableUser(displayerdUser){
+      return{
+        id:displayerdUser.id,
+        name:displayerdUser.name,
+        lastName:displayerdUser.lastName,
+        phone:displayerdUser.phone,
+        image:displayerdUser.image,
+        email:displayerdUser.email,
+        birthday:displayerdUser.birthday,
+        password:displayerdUser.password,
+
+      };
+    },
+    FindIndexById(id){
+      return this.user.findIndex((user)=>user.id==id);
+    },
+
+
+  }
+
 };
 
 </script>
 
 <style scoped>
+
+
 
 *{
   margin: 0;
@@ -83,7 +215,7 @@ body{
   overflow: hidden;
 }
 .card_header {
-  background: #2c3e50;
+  background-color: rgba(20, 222, 220,0.90);
   padding: 60px 40px;
 }
 .Image{
@@ -119,14 +251,14 @@ body{
   border-radius: 50%;
 }
 .UserName{
-  color:#ffffff;
+  color: #181818;
   font-size:28px;
   font-weight: 600;
   margin: 10px 0;
 }
 .UserLastname{
   font-size: 18px;
-  color: #ffffff;
+  color: #181818;
 }
 .Items{
   display: flex;
@@ -142,37 +274,32 @@ body{
 .Items a:hover {
   color: #e66767;
 }
-.Message-me{
-  display: inline-block;
-  padding: 12px 50px;
-  color: #e66767;
-  border: 2px solid #e66767;
-  border-radius: 6px;
-  margin-top: 16px;
-  transition: .3s linear;
-}
 .Message-me:hover{
   background: #e66767;
   color: #fff;
 }
 .card_footer{
-  background: #f4f4f4;
-  padding: 60px 10px;
+  margin: 30px 0;
+  background: #ffffff;
+  padding: 25px 10px;
 }
 .numbers{
-  display: flex;
-  text-align: center;
+  display: inherit;
+  text-align: left;
 }
 .item{
-  flex: 1;
-  text-transform: uppercase;
+  flex: 5;
+  text-transform: initial;
+  margin: 10px;
   font-size: 13px;
-  color: #e66767;
+  color: #222222;
 }
 .item span{
+  border-bottom: 2px solid rgb(0 0 0 / 0.1);
+  margin: 3px 0px;
   display: block;
   color: #2c3e50;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 </style>
