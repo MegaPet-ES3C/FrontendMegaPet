@@ -170,6 +170,62 @@
       "email": "tucto32@gmail.com",
       "password": "Miguel32",
       "birthday": "2022-05-01T05:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "name": "Example",
+      "lastName": "Example",
+      "phone": "(051) 918-514-737",
+      "email": "tucto32@gmail.com",
+      "password": "asdasd123",
+      "birthday": "2022-05-10T05:00:00.000Z"
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8,
+      "name": "Miguel Tuctoasd",
+      "lastName": "asdasd",
+      "phone": "(051) 918-514-737",
+      "email": "tucto32@gmail.com",
+      "password": "1asdasd",
+      "birthday": "2022-05-24T05:00:00.000Z"
+    },
+    {
+      "id": 9,
+      "name": "a",
+      "lastName": "",
+      "phone": "(051) 918-514-737",
+      "email": "tucto32@gmail.com",
+      "password": "asdasd"
+    },
+    {
+      "id": 10,
+      "name": "Miguel Tucto",
+      "lastName": "asdasdasdasd",
+      "phone": "(051) 918-514-737",
+      "email": "tucto32@gmail.com",
+      "password": "asdad3",
+      "birthday": "2022-05-23T05:00:00.000Z"
+    },
+    {
+      "id": 11,
+      "name": "Miguel Tucto",
+      "lastName": "ssssssssssssssssssss",
+      "phone": "(051) 918-514-737",
+      "email": "tucto32@gmail.com",
+      "password": "ssss222",
+      "birthday": "2022-05-02T05:00:00.000Z"
+    },
+    {
+      "id": 12,
+      "name": "Miguel Tucto",
+      "lastName": "sasdasdasdasdasdasd",
+      "phone": "(051) 918-514-737",
+      "email": "tucto32@gmail.com",
+      "password": "asdasdasd2123",
+      "birthday": "2022-05-02T05:00:00.000Z"
     }
   ],
   "shelters": [
