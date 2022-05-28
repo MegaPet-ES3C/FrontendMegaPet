@@ -3,34 +3,31 @@
     <div class="flex justify-content-center ">
       <pv-card class="card shadow-8 " >
         <template #title>
-          <h5 class="text-center">Register</h5>
+          <h2 class="text-center">Register</h2>
         </template>
         <template #content>
           <div class="field mt-3">
             <span class="p-float-label p-input-icon-right justify-content-center">
-              <pv-input-text type="text" id="name" v-model.trim="user.name" required="true"  class=""/>
+              <pv-input-text type="text" id="name" v-model.trim="user.name" required="true" :class="{ 'p-invalid': submitted && !user.name }" />
               <label for="name"> Name </label>
-              <small class="p-error" v-if="submitted && !user.name">Name is required</small>
             </span>
           </div>
           <div class="field mt-5">
             <span class="p-float-label p-input-icon-right">
-              <pv-input-text type="textarea" id="lastname" v-model.trim="user.lastName" required="true" class="" />
+              <pv-input-text type="textarea" id="lastname" v-model.trim="user.lastName" required="true" :class="{ 'p-invalid': submitted && !user.lastName }" />
               <label for="lastname"> Last Name </label>
-              <small class="p-error" v-if="submitted && !user.lastName">Last Name is required</small>
             </span>
           </div>
           <div class="field mt-5">
             <span class="p-float-label p-input-icon-right">
               <i class="pi pi-envelope" />
-              <pv-input-text type="textarea" id="email" v-model.trim="user.email" required="true" aria-describedby="email-error" />
+              <pv-input-text type="textarea" id="email" v-model.trim="user.email" required="true" aria-describedby="email-error" :class="{ 'p-invalid': submitted && !user.email }"/>
               <label for="email"> Email </label>
-              <small class="p-error" v-if="submitted && !user.email">Email is required</small>
             </span>
           </div>
           <div class="field mt-5 ">
             <div class="p-float-label ">
-              <pv-password id="password" v-model.trim="user.password" toggleMask class="">
+              <pv-password id="password" v-model.trim="user.password" toggleMask :class="{ 'p-invalid': submitted && !user.password }">
                 <template #header>
                   <h6>Pick a password</h6>
                 </template>
@@ -47,17 +44,16 @@
                 </template>
               </pv-password>
               <label for="password">Password</label>
-              <small class="p-error" v-if="submitted && !user.password">Password is required</small>
             </div>
           </div>
           <div class="field mt-5">
             <div class="p-float-label p-input-icon-right">
               <i class="pi pi-phone" />
-              <pv-input-mask id="phone" mask="(051) 999-999-999" v-model.trim="user.phone" placeholder="(051) 999-999-999" />
+              <pv-input-mask id="phone" mask="(051) 999-999-999" v-model.trim="user.phone" placeholder="(051) 999-999-999" :class="{ 'p-invalid': submitted && !user.phone }"/>
             </div>
           </div>
           <div class="field mt-5">
-            <pv-calendar id="birthday" v-model="user.birthday"  :showIcon="true" />
+            <pv-calendar id="birthday" v-model="user.birthday"  :showIcon="true" :class="{ 'p-invalid': submitted && !user.birthday }"/>
           </div>
         </template>
         <template #footer>
@@ -96,7 +92,7 @@
 <script>
 
 
-import {UsersApiService} from "../../user/services/users-api.service";
+import { UsersApiService } from "../../user/services/users-api.service";
 
 export default {
 
@@ -104,12 +100,6 @@ export default {
 
   data() {
     return {
-      name: "",
-      email: "",
-      password: "",
-      date: null,
-      country: {},
-      accept: null,
       submitted: false,
       showMessage: false,
       user: {},
@@ -146,11 +136,11 @@ export default {
     },
     resetForm() {
       this.name = "";
+      this.lastName = "";
+      this.phone = "";
       this.email = "";
       this.password = "";
-      this.date = null;
-      this.country = null;
-      this.accept = null;
+      this.birthday = null;
       this.submitted = false;
     },
     editUser(user) {
@@ -163,34 +153,23 @@ export default {
     },
 
     openDialog() {
-
-      if (this.user.name.trim()) {
+      this.submitted = true;
+      if (
+        this.user.name.trim() &&
+        this.user.email.trim() &&
+        this.user.password.trim() &&
+        this.user.phone.trim()
+      ) {
         if (this.user.id) {
           this.user = this.getStorableUser(this.user);
           this.usersService
               .update(this.user.id, this.user)
-              .then((response) => {
-                this.users[this.findIndexById(response.data.id)] =
-                    this.$toast.add({
-                      severity: "success",
-                      summary: "Successful",
-                      detail: "Tutorial Updated",
-                      life: 3000,
-                    });
-                console.log(response)
-              });
         } else {
           this.user.id = 0;
           console.log(this.user);
           this.user = this.getStorableUser(this.user);
           this.usersService.create(this.user).then((response) => {
             this.users.push(this.user);
-            this.$toast.add({
-              severity: "success",
-              summary: "Successful",
-              detail: "Tutorial Updated",
-              life: 3000,
-            });
             console.log(response);
           });
         }
