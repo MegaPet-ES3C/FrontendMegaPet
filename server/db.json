@@ -164,13 +164,13 @@
     },
     {
       "id": 5,
-      "name": "Miguel Tucto",
-      "lastName": "Rivera",
+      "name": "Miguel",
+      "lastName": "aksjdnaskjdnakjdnaskjdnskjda",
       "phone": "(051) 918-514-737",
       "image": "src/assets/user(4).jpg",
       "email": "tucto32@gmail.com",
-      "password": "Miguel32",
-      "birthday": "2022-05-01T05:00:00.000Z"
+      "birthday": "2022-05-01",
+      "password": "Miguel32"
     },
     {
       "id": 6,
@@ -258,7 +258,7 @@
     {
       "id": 4,
       "name": "Proa",
-      "description":  "Be part of this beautiful initiative to help dogs and cats located in \"La casa de Doguito\" in Chorrillos. Our main task is to bring as many donations as possible to the animals that are refugees, they eagerly await to be visited. Cheer up to work with us and be able to #ChangeYourBadDays!",
+      "description": "Be part of this beautiful initiative to help dogs and cats located in \"La casa de Doguito\" in Chorrillos. Our main task is to bring as many donations as possible to the animals that are refugees, they eagerly await to be visited. Cheer up to work with us and be able to #ChangeYourBadDays!",
       "url": "https://proa.pe/ong/asociacion-kp/visita-el-albergue-de-chorrillos",
       "image": "src/assets/proa.svg",
       "rating": 3
