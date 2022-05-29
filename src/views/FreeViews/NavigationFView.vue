@@ -1,6 +1,6 @@
 <template>
 
-  <img src="src/assets/logo2.png" style="width: 300px"/>
+
 
   <RouterView />
 </template>
