@@ -4,7 +4,7 @@
   <div class="Profile">
     <div class="card_header">
       <div class="Image">
-        <img :src='user.image' style="width:5rem"/>
+        <img :src='user.image' style="width:10rem"/>
       </div>
       <div>
         <div class="UserName"> {{user.name}} </div>

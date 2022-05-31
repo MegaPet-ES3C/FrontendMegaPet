@@ -137,7 +137,7 @@
       "name": "Miguel",
       "lastName": "Tucto",
       "phone": "918514737",
-      "image": "src/assets/user(1).jpg",
+      "image": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "email": "tucto32@gmail.com",
       "password": "Example123456",
       "birthday": 24
@@ -147,7 +147,7 @@
       "name": "Angel",
       "lastName": "Bedrillana",
       "phone": "999448877",
-      "image": "src/assets/user(2).jpg",
+      "image": "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "email": "angel21@gmail.com",
       "password": "Example123456",
       "birthday": 21
@@ -157,7 +157,7 @@
       "name": "Jhordan",
       "lastName": "De la Cruz",
       "phone": "948541235",
-      "image": "src/assets/user(3).jpg",
+      "image": "https://images.pexels.com/photos/532220/pexels-photo-532220.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "email": "jhordan420@gmail.com",
       "password": "Example123456",
       "birthday": 22
@@ -167,7 +167,7 @@
       "name": "Juan",
       "lastName": "Palomino",
       "phone": "(051) 997-8978",
-      "image": "src/assets/user(4).jpg",
+      "image": "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "email": "juan32@gmail.com",
       "password": "Example123456",
       "birthday": "2022-05-03T05:00:00.000Z"
@@ -177,7 +177,7 @@
       "name": "Miguel",
       "lastName": "aksjdnaskjdnakjdnaskjdnskjda",
       "phone": "(051) 918-514-737",
-      "image": "src/assets/user(4).jpg",
+      "image": "https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "email": "tucto32@gmail.com",
       "password": "Miguel32",
       "birthday": "2022-05-01T05:00:00.000Z"
@@ -186,71 +186,12 @@
   "adopters": [
     {
       "id": 1,
-      "name": "asd",
-      "lastName": "asd",
+      "name": "Miguel",
+      "lastName": "Example",
       "gender": "asd",
       "age": "asd",
       "status": "asd",
-      "description": "asd",
-      "birthday": "2022-05-01",
-      "password": "Miguel32"
-    },
-    {
-      "id": 6,
-      "name": "Fernnafloo",
-      "lastName": "Chorizo",
-      "phone": "(051) 987-716-455",
-      "image": "src/assets/user(4).jpg",
-      "email": "FernanChorizo31@gmail.com",
-      "password": "Mierdamierda123#",
-      "birthday": "2021-08-03T23:00:00.000Z"
-    },
-    {
-      "id": 7
-    },
-    {
-      "id": 8,
-      "name": "Miguel Tuctoasd",
-      "lastName": "asdasd",
-      "phone": "(051) 918-514-737",
-      "email": "tucto32@gmail.com",
-      "password": "1asdasd",
-      "birthday": "2022-05-24T05:00:00.000Z"
-    },
-    {
-      "id": 9,
-      "name": "a",
-      "lastName": "",
-      "phone": "(051) 918-514-737",
-      "email": "tucto32@gmail.com",
-      "password": "asdasd"
-    },
-    {
-      "id": 10,
-      "name": "Miguel Tucto",
-      "lastName": "asdasdasdasd",
-      "phone": "(051) 918-514-737",
-      "email": "tucto32@gmail.com",
-      "password": "asdad3",
-      "birthday": "2022-05-23T05:00:00.000Z"
-    },
-    {
-      "id": 11,
-      "name": "Miguel Tucto",
-      "lastName": "ssssssssssssssssssss",
-      "phone": "(051) 918-514-737",
-      "email": "tucto32@gmail.com",
-      "password": "ssss222",
-      "birthday": "2022-05-02T05:00:00.000Z"
-    },
-    {
-      "id": 12,
-      "name": "Miguel Tucto",
-      "lastName": "sasdasdasdasdasdasd",
-      "phone": "(051) 918-514-737",
-      "email": "tucto32@gmail.com",
-      "password": "asdasdasd2123",
-      "birthday": "2022-05-02T05:00:00.000Z"
+      "description": "asd"
     }
   ],
   "shelters": [
@@ -259,7 +200,7 @@
       "name": "Voz Animal",
       "description": "Our mission is to sterilize street animals, as a solution to the problem of overpopulation and abandonment of these animals. That is why we carry out monthly sterilization campaigns in districts with vulnerable populations.",
       "url": "https://www.vozanimalperu.com/albergue",
-      "image": "src/assets/vozanimal.png",
+      "image": "https://www.vozanimalperu.com/images/logo.png",
       "rating": 5
     },
     {
@@ -267,7 +208,7 @@
       "name": "Wuf",
       "description": "We are a non-profit association that seeks to build a better world for dogs through sustainable initiatives.",
       "url": "https://www.wuf.pe/",
-      "image": "src/assets/wuf.png",
+      "image": "https://media-exp1.licdn.com/dms/image/C4D0BAQGqEea5RVgb6g/company-logo_200_200/0/1526079609385?e=2147483647&v=beta&t=RpY-TMdnUktQXiqgjpbhpS_nOJqhLg1dhTO-PtcLdNY",
       "rating": 4
     },
     {
@@ -275,7 +216,7 @@
       "name": "Animazul",
       "description": "The Animazul shelter currently houses 43 puppies, most of them already old, and is maintained thanks to the help of the padrinoazules who contribute an amount per month. There are many needs in the shelter. On this, our website, you can learn about the puppies we care for and the ways you can help them. We invite you to see the various pages and meet our \"refugees\", perhaps you will be encouraged to sponsor them or you can provide them with a home.",
       "url": "https://www.animazul.org/",
-      "image": "src/assets/animazul.jpg",
+      "image": "https://www.animazul.org/wp-content/themes/twentyeleven/images/logoanima.jpg",
       "rating": 3
     },
     {
@@ -283,7 +224,7 @@
       "name": "Proa",
       "description": "Be part of this beautiful initiative to help dogs and cats located in \"La casa de Doguito\" in Chorrillos. Our main task is to bring as many donations as possible to the animals that are refugees, they eagerly await to be visited. Cheer up to work with us and be able to #ChangeYourBadDays!",
       "url": "https://proa.pe/ong/asociacion-kp/visita-el-albergue-de-chorrillos",
-      "image": "src/assets/proa.svg",
+      "image": "https://proa.pe/images/navbar/logo.svg",
       "rating": 3
     }
   ],
@@ -1505,4 +1446,3 @@
     }
   ]
 }
-
