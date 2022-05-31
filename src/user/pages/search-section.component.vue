@@ -37,7 +37,7 @@
       <template #list="slotProps">
         <div class="col-12">
           <div class="product-list-item">
-            <img :src="slotProps.data.image" style="width: 5rem" />
+            <pv-img :src="slotProps.data.image" width="250" />
             <div class="product-list-detail">
               <div class="product-name">
                 {{ slotProps.data.name }}
@@ -92,8 +92,8 @@
                 slotProps.data.inventoryStatus
               }}</pv-tag>
             </div>
-            <div class="product-grid-item-content">
-              <img :src="slotProps.data.image" style="width: 5rem" />
+            <div class="product-grid-item-content mt-5">
+              <pv-img :src="slotProps.data.image" width="100" preview/>
               <div class="product-name">{{ slotProps.data.name }}</div>
               <!--<div class="product-description">
                 {{ slotProps.data.description }}
@@ -377,8 +377,8 @@ export default {
 .product-grid-item-item:hover{
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-img {
-  width: 50px;
+pv-img {
+  margin-top: 5rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   margin-right: 2rem;
 }
@@ -418,9 +418,10 @@ img {
   justify-content: space-between;
 }
 
-img {
+.image {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   margin: 2rem 0;
+  width: 100px;
 }
 
 .product-grid-item-content {
