@@ -5,7 +5,7 @@
       "code": "f230fh0g3",
       "name": "Samy",
       "description": "His name is Samy, who was received by a veterinary group because he was at risk. She lived on the street and took refuge from time to time in a cardboard box, her body was marked by abandonment, suffering and indifference.\nShe suffered from distemper, parasites, scabies, malnutrition and other diseases, it is very sad to see such a depressing state of an animal that she is not to blame for anything. During the first year Samy she was in a very bad state, she was not sure if she could be saved.\n\nAfter a while, Samy began to improve markedly, and the positive results of the intensive care she underwent began to be seen. Today Samy is super happy in her new home.",
-      "image": "src/assets/pet(1).jpg",
+      "image": "https://images.pexels.com/photos/1851164/pexels-photo-1851164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "rescuedTime": 20,
       "category": "BABY",
       "quantity": 24,
@@ -17,7 +17,7 @@
       "code": "f230fh0g3",
       "name": "Lucero",
       "description": "Her name is Lucero. She was rescued by a dog care group in a somewhat sad situation in that she was unable to walk due to an injury to her spine and hip.\n\nLucero never gave up until she finally took her first steps on the right path. Despite her hip dysplasia, Lucero is able to walk and run like any other dog and she is very happy at the shelter.",
-      "image": "src/assets/pet(2).jpg",
+      "image": "https://images.pexels.com/photos/825947/pexels-photo-825947.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "rescuedTime": 10,
       "category": "BABY",
       "quantity": 24,
@@ -29,7 +29,7 @@
       "code": "f230fh0g3",
       "name": "Loba",
       "description": "They found her in a very critical condition, it was really very difficult to think that she could be saved, she suffered from scabies, extreme malnutrition among other infections, but with the help of good people and the will to live of this beautiful dog she was able to defeat death.\n\nAfter a few months of recovery she was adopted by a family and is happy and running around the garden with other dogs.",
-      "image": "src/assets/pet(3).jpg",
+      "image": "https://images.pexels.com/photos/2318990/pexels-photo-2318990.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "rescuedTime": 1,
       "category": "YOUNGER",
       "quantity": 24,
@@ -1478,54 +1478,6 @@
       "name": "Zimbabwe",
       "code": "ZW"
     }
-  ],
-  "shelters": [
-    {
-      "id": 1,
-      "name": "PetLovers",
-      "phone": "(01) 4596145",
-      "image": "src/assets/shelter(1).jpg",
-      "email": "Petlover@gmail.com",
-      "password": "Example123456",
-    },
-    {
-      "id": 2,
-      "name": "AdoptPet",
-      "phone": "(01) 5422145",
-      "image": "src/assets/shelter(2).jpg",
-      "email": "AdoptPet@gmail.com",
-      "password": "Example123456",
-    },
-    {
-      "id": 3,
-      "name": "NewHome",
-      "phone": "(01) 5697145",
-      "image": "src/assets/shelter(3).jpg",
-      "email": "NewHome@gmail.com",
-      "password": "Example123456",
-    },
-    {
-      "id": 4,
-      "name": "NewFriend",
-      "phone": "(01) 4592043",
-      "image": "src/assets/shelter(4).jpg",
-      "email": "NewFriend@gmail.com",
-      "password": "Example123456",
-    },
-    {
-      "id": 5,
-      "name": "SaveLife",
-      "phone": "(01) 4663494",
-      "image": "src/assets/shelter(5).jpg",
-      "email": "Savellife@gmail.com",
-      "password": "Save132",
-    },
-    {
-      "id": 6,
-      "name": "NewHope",
-      "phone": "(01) 4887298",
-      "image": "src/assets/shelter(6).jpg",
-      "email": "Newhope231@gmail.com",
-      "password": "New321",
-    },
+  ]
 }
+

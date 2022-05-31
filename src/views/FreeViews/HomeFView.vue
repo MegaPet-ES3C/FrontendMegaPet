@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="flex justify-content-center mb-5">
-      <img src="src/assets/icon.png">
+      <img src="https://ibb.co/jDVftXw">
     </div>
     <div class="grid">
       <div class="col-5 flex  justify-content-center">

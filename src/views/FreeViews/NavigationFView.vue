@@ -1,6 +1,6 @@
 <template>
 
-  <img src="src/assets/logo2.png" style="width: 300px"/>
+  <img src="https://ibb.co/QbTjDWZ" style="width: 300px"/>
 
   <RouterView />
 </template>
