@@ -1,7 +1,7 @@
 <template>
   <div class="form-demo">
     <div class="flex justify-content-center ">
-      <pv-card class="card shadow-8 " >
+      <pv-card class="card shadow-8 p-fluid" style="width: 50%">
         <template #title>
           <h2 class="text-center">Register</h2>
         </template>
@@ -57,7 +57,7 @@
           </div>
         </template>
         <template #footer>
-          <pv-button  label="Submit" class="mt-2 ml-7 p-button-rounded" @click="openDialog" />
+          <pv-button  label="Submit" class=" p-button-rounded" @click="openDialog" />
         </template>
       </pv-card>
     </div>
@@ -73,16 +73,13 @@
             class="pi pi-check-circle"
             :style="{ fontSize: '5rem', color: 'var(--green-500)' }"
         ></i>
-        <h5>Registration Successful!</h5>
-        <p :style="{ lineHeight: 1.5, textIndent: '1rem' }">
-          Your account is registered under name <b>{{ user.name }}</b> ; it'll be
-          valid newt 30 days without activation. Please check
-          <b>{{ user.email }}</b> for activation instructions.
-        </p>
+        <h1>Registration Successful!</h1>
+        <p>
+          Thanks for your registration! Now you can enjoy our app web :)</p>
       </div>
       <template #footer>
         <div class="flex justify-content-center">
-          <a href="/User"><pv-button label="OK" @click="toggleDialog" class="p-button-text" ref="/home"/></a>
+          <a href="/User" style=" text-decoration: none"><pv-button label="OK" @click="toggleDialog" class="p-button-icon-left" icon="pi pi-angle-double-right" ref="/home"/></a>
         </div>
       </template>
     </pv-dialog>

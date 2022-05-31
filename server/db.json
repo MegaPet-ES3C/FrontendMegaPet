@@ -10,7 +10,8 @@
       "category": "BABY",
       "quantity": 24,
       "inventoryStatus": "AVAILABLE",
-      "rating": 5
+      "rating": 5,
+      "userId": 1
     },
     {
       "id": 2,
@@ -22,7 +23,8 @@
       "category": "BABY",
       "quantity": 24,
       "inventoryStatus": "AVAILABLE",
-      "rating": 5
+      "rating": 5,
+      "userId": 1
     },
     {
       "id": 3,
@@ -34,7 +36,8 @@
       "category": "YOUNGER",
       "quantity": 24,
       "inventoryStatus": "AVAILABLE",
-      "rating": 5
+      "rating": 5,
+      "userId": 1
     },
     {
       "id": 4,
@@ -46,7 +49,8 @@
       "category": "YOUNGER",
       "quantity": 24,
       "inventoryStatus": "AVAILABLE",
-      "rating": 5
+      "rating": 5,
+      "userId": 2
     },
     {
       "id": 5,
@@ -58,7 +62,8 @@
       "category": "BABY",
       "quantity": 24,
       "inventoryStatus": "AVAILABLE",
-      "rating": 5
+      "rating": 5,
+      "userId": 2
     },
     {
       "id": 6,
@@ -70,7 +75,8 @@
       "category": "BABY",
       "quantity": 24,
       "inventoryStatus": "UNAVAILABLE",
-      "rating": 5
+      "rating": 5,
+      "userId": 2
     },
     {
       "id": 7,
@@ -82,7 +88,8 @@
       "category": "BABY",
       "quantity": 24,
       "inventoryStatus": "UNAVAILABLE",
-      "rating": 5
+      "rating": 5,
+      "userId": 3
     },
     {
       "id": 8,
@@ -94,7 +101,8 @@
       "category": "ADULT",
       "quantity": 24,
       "inventoryStatus": "AVAILABLE",
-      "rating": 5
+      "rating": 5,
+      "userId": 4
     },
     {
       "id": 9,
@@ -106,7 +114,8 @@
       "category": "YOUNGER",
       "quantity": 24,
       "inventoryStatus": "AVAILABLE",
-      "rating": 5
+      "rating": 5,
+      "userId": 5
     },
     {
       "id": 10,
@@ -118,7 +127,8 @@
       "category": "YOUNGER",
       "quantity": 24,
       "inventoryStatus": "UNAVAILABLE",
-      "rating": 5
+      "rating": 5,
+      "userId": 5
     }
   ],
   "users": [
@@ -164,21 +174,36 @@
     },
     {
       "id": 5,
-      "name": "Miguel Tucto",
-      "lastName": "Rivera",
+      "name": "Miguel",
+      "lastName": "aksjdnaskjdnakjdnaskjdnskjda",
       "phone": "(051) 918-514-737",
+      "image": "src/assets/user(4).jpg",
       "email": "tucto32@gmail.com",
       "password": "Miguel32",
       "birthday": "2022-05-01T05:00:00.000Z"
+    }
+  ],
+  "adopters": [
+    {
+      "id": 1,
+      "name": "asd",
+      "lastName": "asd",
+      "gender": "asd",
+      "age": "asd",
+      "status": "asd",
+      "description": "asd",
+      "birthday": "2022-05-01",
+      "password": "Miguel32"
     },
     {
       "id": 6,
-      "name": "Example",
-      "lastName": "Example",
-      "phone": "(051) 918-514-737",
-      "email": "tucto32@gmail.com",
-      "password": "asdasd123",
-      "birthday": "2022-05-10T05:00:00.000Z"
+      "name": "Fernnafloo",
+      "lastName": "Chorizo",
+      "phone": "(051) 987-716-455",
+      "image": "src/assets/user(4).jpg",
+      "email": "FernanChorizo31@gmail.com",
+      "password": "Mierdamierda123#",
+      "birthday": "2021-08-03T23:00:00.000Z"
     },
     {
       "id": 7
@@ -256,7 +281,7 @@
     {
       "id": 4,
       "name": "Proa",
-      "description":  "Be part of this beautiful initiative to help dogs and cats located in \"La casa de Doguito\" in Chorrillos. Our main task is to bring as many donations as possible to the animals that are refugees, they eagerly await to be visited. Cheer up to work with us and be able to #ChangeYourBadDays!",
+      "description": "Be part of this beautiful initiative to help dogs and cats located in \"La casa de Doguito\" in Chorrillos. Our main task is to bring as many donations as possible to the animals that are refugees, they eagerly await to be visited. Cheer up to work with us and be able to #ChangeYourBadDays!",
       "url": "https://proa.pe/ong/asociacion-kp/visita-el-albergue-de-chorrillos",
       "image": "src/assets/proa.svg",
       "rating": 3

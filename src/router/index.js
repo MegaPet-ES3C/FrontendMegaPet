@@ -39,7 +39,7 @@ const router = createRouter({
         {
           path: "/shelter",
           name: "Shelter",
-          component: () => import("../user/pages/shelter-section.component.vue")
+          component: () => import("../shelter/pages/shelter-section.component.vue")
         }
       ]
     }

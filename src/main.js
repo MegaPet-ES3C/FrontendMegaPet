@@ -35,6 +35,7 @@ import ToastService from "primevue/toastservice";
 
 const app = createApp(App);
 
+app.config.devtools = true
 app.use(router);
 
 // PrimeVue Configuration
