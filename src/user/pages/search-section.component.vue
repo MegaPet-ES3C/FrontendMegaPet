@@ -1,7 +1,6 @@
 <template>
-  <h1>Search Section</h1>
-  <div class="card">
-
+  <div>
+    <h1>Search Section</h1>
     <pv-data-view
       :value="pets"
       :layout="layout"
@@ -38,7 +37,7 @@
       <template #list="slotProps">
         <div class="col-12">
           <div class="product-list-item">
-            <img :src="slotProps.data.image" style="width: 5rem" />
+            <pv-img :src="slotProps.data.image" imageClass="width: 100" />
             <div class="product-list-detail">
               <div class="product-name">
                 {{ slotProps.data.name }}
@@ -94,7 +93,7 @@
               }}</pv-tag>
             </div>
             <div class="product-grid-item-content">
-              <img :src="slotProps.data.image" style="width: 5rem" />
+              <pv-img :src="slotProps.data.image" width="125" preview/>
               <div class="product-name">{{ slotProps.data.name }}</div>
               <!--<div class="product-description">
                 {{ slotProps.data.description }}
@@ -260,6 +259,10 @@ export default {
 </script>
 
 <style scoped>
+h1{
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI';
+  font-size: 2.5rem;
+}
 .card {
   background: #ffffff;
   padding: 2rem;
