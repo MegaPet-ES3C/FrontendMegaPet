@@ -4,7 +4,6 @@ export class SheltersApiService {
   getAll() {
     return http.get("/shelters");
   }
-
   getById(id) {
     return http.get(`/shelters/${id}`);
   }

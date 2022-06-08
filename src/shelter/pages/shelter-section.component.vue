@@ -12,6 +12,12 @@
           </template>
           <template #content>
             {{shelter.description}}
+            <div class = "rating">
+              <h3>{{shelter.rating}}</h3>
+            </div>
+            <div>
+              <a href="http://localhost:3000/shelterProfile" class="pi pi-user"></a>
+            </div>
           </template>
         </pv-card>
       </template>
@@ -63,6 +69,11 @@ export default {
 .container{
   display: flex;
   justify-content: center;
+  align-content: center;
+}
+.rating{
+  display: flex;
+  justify-content: left;
   align-content: center;
 }
 img{

@@ -1,14 +1,15 @@
 <template>
+
   <body class="card">
 
   <div class="Profile">
     <div class="card_header">
       <div class="Image">
-        <img :src='user.image' style="width:10rem"/>
+        <img :src='shelter.image' style="width:10rem"/>
       </div>
       <div>
-        <div class="UserName"> {{user.name}} </div>
-        <div class="UserLastname"> {{user.lastName}}</div>
+        <div class="UserName"> {{shelter.name}} </div>
+        <div class="UserLastname"> {{shelter.description}}</div>
         <div class="Items">
           <a href="https://www.facebook.com/" class="pi pi-facebook"></a>
           <a href="https://www.instagram.com/" class="pi pi-twitter"></a>
@@ -17,22 +18,27 @@
         </div>
         <div>
           <!--<a href="" class="Message-me">Edit Info</a>-->
-          <pv-button icon="pi pi-pencil" class="p-button-icon" @click="editInfo(user)"/>
+          <pv-button icon="pi pi-pencil" class="p-button-icon" @click="editInfo(shelter)"/>
         </div>
         <div class="card_footer">
           <div class="numbers">
             <div class="item">
-              <h2>Phone User: </h2>
-              <span>{{user.phone}}</span>
+              <h2>Contact </h2>
+              <span>{{shelter.phone}}</span>
             </div>
             <div class="item">
-              <h2>Gmail</h2>
-              <span>{{user.email}}</span>
+              <h2>Location</h2>
+              <span>{{shelter.location}}</span>
             </div>
             <div class="item">
-              <h2>User Birthday</h2>
-              <span>{{user.birthday}}</span>
+              <h2>Address</h2>
+              <span>{{shelter.address}}</span>
             </div>
+            <div class="item">
+              <h2>rating</h2>
+              <span>{{shelter.rating}}</span>
+            </div>
+
           </div>
         </div>
       </div>
@@ -40,45 +46,45 @@
   </div>
 
 
-  <pv-dialog v-model:visible="editInfoProfile" :style="{width: '650px'}" header="challenge Information" :model="true" class="p-fluid">
+  <pv-dialog v-model:visible="editShelterProfile" :style="{width: '650px'}" header="challenge Information" :model="true" class="p-fluid">
 
     <div class="field mt-5">
       <span class="p-float-label">
-        <pv-input-text type="text" id="Name" v-model.trim="user.name"
-                       required="true" autofocus :class="{'p-invalid': submitted && !user.name}"/>
+        <pv-input-text type="text" id="Name" v-model.trim="shelter.name"
+                       required="true" autofocus :class="{'p-invalid': submitted && !shelter.name}"/>
         <label for="Name">Name</label>
       </span>
     </div>
 
     <div class="field mt-5">
       <span class="p-float-label">
-        <pv-input-text type="text" id="LastName" v-model.trim="user.lastName"
-                       required="true" autofocus :class="{'p-invalid' :submitted && !user.lastName}"/>
-        <label for="LastName">LastName</label>
-      </span>
-    </div>
-
-    <div class="field mt-5">
-      <span class="p-float-label">
-        <pv-input-text type="text" id="Password" v-model.trim="user.password"
-                       required="true" autofocus :class="{'p-invalid' :submitted && !user.password}"/>
-        <label for="Password">Password</label>
-      </span>
-    </div>
-
-    <div class="field mt-5">
-      <span class="p-float-label">
-        <pv-input-text type="text" id="Birthday" v-model.trim="user.birthday"
-                       required="true" autofocus :class="{'p-invalid' :submitted && !user.birhtday}"/>
-        <label for="Birthday">Birthday</label>
-      </span>
-    </div>
-
-    <div class="field mt-5">
-      <span class="p-float-label">
-        <pv-input-text type="text" id="Phone" v-model.trim="user.phone"
-                       required="true" autofocus :class="{'p-invalid' :submitted && !user.phone}"/>
+        <pv-input-text type="text" id="Phone" v-model.trim="shelter.phone"
+                       required="true" autofocus :class="{'p-invalid' :submitted && !shelter.phone}"/>
         <label for="Phone">Phone</label>
+      </span>
+    </div>
+
+    <div class="field mt-5">
+      <span class="p-float-label">
+        <pv-input-text type="text" id="Location" v-model.trim="shelter.location"
+                       required="true" autofocus :class="{'p-invalid' :submitted && !shelter.location}"/>
+        <label for="Location">Location</label>
+      </span>
+    </div>
+
+    <div class="field mt-5">
+      <span class="p-float-label">
+        <pv-input-text type="text" id="Address" v-model.trim="shelter.address"
+                       required="true" autofocus :class="{'p-invalid' :submitted && !shelter.address}"/>
+        <label for="Address">Address</label>
+      </span>
+    </div>
+
+    <div class="field mt-5">
+      <span class="p-float-label">
+        <pv-input-text type="text" id="Description" v-model.trim="shelter.description"
+                       required="true" autofocus :class="{'p-invalid' :submitted && !shelter.description}"/>
+        <label for="Description">Phone</label>
       </span>
     </div>
 
@@ -89,55 +95,54 @@
 
   </pv-dialog>
 
-
-
   </body>
+
 </template>
 
 <script>
-import { UsersApiService } from "../services/users-api.service";
+
+import { SheltersApiService } from "../services/shelters-api.service";
 
 export default {
-  name: "profile-section.component",
-  data() {
-    return {
-      editInfoProfile:false,
+  name: "shelterProfile-section.component",
+  data(){
+    return{
+      editShelterProfile:false,
       submitted:false,
-      deleteChangeInfoProgile: false,
-      user: null,
-      userService: null
+      deleteChangeInfoProfile: false,
+      shelter:null,
+      shelterService:null
     };
   },
   created() {
-    this.userService = new UsersApiService();
-    this.userService.getById(5).then((response) => {
-      this.user = response.data;
+    this.shelterService = new SheltersApiService();
+    this.shelterService.getById(1).then((response)=>{
+      this.shelter = response.data;
       console.log("created");
     });
   },
 
-
   methods:{
     editInfo(Profile){
       console.log(Profile);
-      this.user={...Profile};
-      console.log(this.user);
-      this.editInfoProfile=true;
+      this.shelter={...Profile};
+      console.log(this.shelter);
+      this.editShelterProfile=true;
     },
     hideDialog(){
-      this.editInfoProfile=false;
+      this.editShelterProfile=false;
       this.submitted=false;
     },
     saveEditInfo(){
       this.submitted=true;
-      if(this.user.name.trim()){
-        if(this.user.id){
-          this.user=this.getStorableUser(this.user);
-          this.userService
-            .update(this.user.id,this.user)
+      if(this.shelter.name.trim()){
+        if(this.shelter.id){
+          this.shelter=this.getStorableUser(this.shelter);
+          this.shelterService
+            .update(this.shelter.id,this.shelter)
             .then((response)=>{
-              this.user[this.FindIndexById(response.data.id)]=
-                this.user.id;
+              this.shelter[this.FindIndexById(response.data.id)]=
+                this.shelter.id;
               this.$toast.add({
                 severity:"success",
                 summary:"Successful",
@@ -147,11 +152,11 @@ export default {
               console.log(response);
             });
         } else {
-          this.user.id=0;
-          console.log(this.user);
-          this.user=this.getStorableUser(this.user);
-          this.userService.created(this.user).then((response)=>{
-            this.user.push(this.user);
+          this.shelter.id=0;
+          console.log(this.shelter);
+          this.shelter=this.getStorableUser(this.shelter);
+          this.shelterService.created(this.shelter).then((response)=>{
+            this.shelter.push(this.shelter);
             this.$toast.add({
               severity:"success",
               summary:"Successful",
@@ -161,7 +166,7 @@ export default {
             console.log(response);
           });
         }
-        this.editInfoProfile=false;
+        this.editShelterProfile=false;
       }
     },
 
@@ -169,27 +174,23 @@ export default {
       return{
         id:displayerdUser.id,
         name:displayerdUser.name,
-        lastName:displayerdUser.lastName,
-        phone:displayerdUser.phone,
+        description:displayerdUser.description,
+        url:displayerdUser.url,
         image:displayerdUser.image,
-        email:displayerdUser.email,
-        birthday:displayerdUser.birthday,
-        password:displayerdUser.password,
+        rating:displayerdUser.rating,
       };
     },
     FindIndexById(id){
-      return this.user.findIndex((user)=>user.id==id);
+      return this.shelter.findIndex((shelter)=>shelter.id==id);
     },
 
-
   }
-
 };
-
 </script>
 
-<style scoped>
 
+
+<style scoped>
 
 
 *{

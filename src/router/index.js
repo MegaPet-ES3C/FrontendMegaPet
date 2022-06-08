@@ -40,6 +40,11 @@ const router = createRouter({
           path: "/shelter",
           name: "Shelter",
           component: () => import("../shelter/pages/shelter-section.component.vue")
+        },
+        {
+          path: "/shelterProfile",
+          name: "ShelterProfile",
+          component: () => import("../shelter/pages/shelterProfile-section.component.vue")
         }
       ]
     }

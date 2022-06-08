@@ -175,12 +175,12 @@
     {
       "id": 5,
       "name": "Miguel",
-      "lastName": "aksjdnaskjdnakjdnaskjdnskjda",
+      "lastName": "Baby",
       "phone": "(051) 918-514-737",
       "image": "https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "email": "tucto32@gmail.com",
-      "password": "Miguel32",
-      "birthday": "2022-05-01T05:00:00.000Z"
+      "birthday": "2022-05-01T05:00:00.000Z",
+      "password": "Miguel32"
     }
   ],
   "adopters": [
@@ -192,6 +192,15 @@
       "age": "asd",
       "status": "asd",
       "description": "asd"
+    },
+    {
+      "id": 2,
+      "name": "dad",
+      "lastName": "dd",
+      "gender": "dd",
+      "age": "dd",
+      "status": "dd",
+      "description": "dd"
     }
   ],
   "shelters": [
@@ -201,6 +210,9 @@
       "description": "Our mission is to sterilize street animals, as a solution to the problem of overpopulation and abandonment of these animals. That is why we carry out monthly sterilization campaigns in districts with vulnerable populations.",
       "url": "https://www.vozanimalperu.com/albergue",
       "image": "https://www.vozanimalperu.com/images/logo.png",
+      "phone": 912849516,
+      "location": "Santa Lusmila",
+      "address": "Jiron La union 160",
       "rating": 5
     },
     {
@@ -209,6 +221,9 @@
       "description": "We are a non-profit association that seeks to build a better world for dogs through sustainable initiatives.",
       "url": "https://www.wuf.pe/",
       "image": "https://media-exp1.licdn.com/dms/image/C4D0BAQGqEea5RVgb6g/company-logo_200_200/0/1526079609385?e=2147483647&v=beta&t=RpY-TMdnUktQXiqgjpbhpS_nOJqhLg1dhTO-PtcLdNY",
+      "phone": 970444561,
+      "location": "Puente Piedra",
+      "address": "Jiron La union 160",
       "rating": 4
     },
     {
@@ -217,6 +232,9 @@
       "description": "The Animazul shelter currently houses 43 puppies, most of them already old, and is maintained thanks to the help of the padrinoazules who contribute an amount per month. There are many needs in the shelter. On this, our website, you can learn about the puppies we care for and the ways you can help them. We invite you to see the various pages and meet our \"refugees\", perhaps you will be encouraged to sponsor them or you can provide them with a home.",
       "url": "https://www.animazul.org/",
       "image": "https://www.animazul.org/wp-content/themes/twentyeleven/images/logoanima.jpg",
+      "phone": 970444651,
+      "location": "Olivos",
+      "address": "Jiron La union 160",
       "rating": 3
     },
     {
@@ -225,6 +243,9 @@
       "description": "Be part of this beautiful initiative to help dogs and cats located in \"La casa de Doguito\" in Chorrillos. Our main task is to bring as many donations as possible to the animals that are refugees, they eagerly await to be visited. Cheer up to work with us and be able to #ChangeYourBadDays!",
       "url": "https://proa.pe/ong/asociacion-kp/visita-el-albergue-de-chorrillos",
       "image": "https://proa.pe/images/navbar/logo.svg",
+      "phone": 965444551,
+      "location": "Callao",
+      "address": "Jiron La union 160",
       "rating": 3
     }
   ],
