@@ -4,12 +4,12 @@
 
   <div class="Profile">
     <div class="card_header">
-      <div class="Image">
-        <img :src='shelter.image' style="width:10rem"/>
+      <div class="mdi-image">
+        <img class="Image" :src='shelter.image' style="width:10rem"/>
       </div>
       <div>
-        <div class="UserName"> {{shelter.name}} </div>
-        <div class="UserLastname"> {{shelter.description}}</div>
+        <div class="Shelter-Name"> {{shelter.name}} </div>
+        <div class="Shelter-Description"> {{shelter.description}}</div>
         <div class="Items">
           <a href="https://www.facebook.com/" class="pi pi-facebook"></a>
           <a href="https://www.instagram.com/" class="pi pi-twitter"></a>
@@ -23,7 +23,7 @@
         <div class="card_footer">
           <div class="numbers">
             <div class="item">
-              <h2>Contact </h2>
+              <h2>Phone </h2>
               <span>{{shelter.phone}}</span>
             </div>
             <div class="item">
@@ -215,7 +215,7 @@ body{
 }
 .card_header {
   background-color: rgba(20, 222, 220,0.90);
-  padding: 60px 40px;
+  padding: 60px 30px;
 }
 .Image{
   image-resolution: unset;
@@ -251,14 +251,14 @@ body{
   heigh: 100px;
   border-radius: 50%;
 }
-.UserName{
+.Shelter-Name{
   color: #181818;
   font-size:28px;
   font-weight: 600;
   margin: 10px 0;
 }
 
-.UserLastname{
+.Shelter-Description{
   font-size: 18px;
   color: #181818;
 }
@@ -299,7 +299,7 @@ body{
   heigh: 100px;
   border-radius: 50%;
 }
-.UserName{
+.Shelter-Name{
   color:#ffffff;
   font-size:28px;
   font-weight: 600;
