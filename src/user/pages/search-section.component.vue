@@ -38,7 +38,7 @@
       <template #list="slotProps">
         <div class="col-12">
           <div class="product-list-item">
-            <pv-img :src="slotProps.data.image" width="250" />
+            <pv-img :src="slotProps.data.image" width="250"  />
             <div class="product-list-detail">
               <div class="product-name">
                 {{ slotProps.data.name }}
@@ -89,13 +89,13 @@
                 severity="success"
                 >{{ slotProps.data.inventoryStatus }}</pv-tag
               >
-              <pv-tag v-else severity="warning">{{
+              <pv-tag v-else severity="danger">{{
                 slotProps.data.inventoryStatus
               }}</pv-tag>
             </div>
 
             <div class="product-grid-item-content">
-              <pv-img :src="slotProps.data.image" width="125" preview/>
+              <pv-img :src="slotProps.data.image" width="150" class="mt-5" preview/>
 
               <div class="product-name">{{ slotProps.data.name }}</div>
               <!--<div class="product-description">
@@ -133,6 +133,7 @@
       :modal="true"
       class="p-fluid"
     >
+      <label><b>Pet choosed <i>{{pet.name}}</i></b></label>
       <div class="field mt-4">
         <span class="p-float-label">
           <pv-input-text  type="text" id="name" v-model.trim="adopter.name" required="true" :class="{ 'p-invalid': submitted && !adopter.name }"/>
@@ -171,7 +172,7 @@
       </div>
       <div class="field">
         <span>
-          <label><b>Pet choosed</b></label>
+
           <pv-input-text type="text"  v-model="pet.id"  :class="{ 'p-invalid': submitted && !adopter.petId }" disabled/>
         </span>
       </div>
@@ -203,7 +204,7 @@
               <p> {{pet.description}}</p>
             </template>
             <template #footer>
-              <pv-button label="Help" @click="openDialog"></pv-button>
+              <pv-button label="Help" @click="openDialog(pet)"></pv-button>
             </template>
           </pv-card>
         </div>
@@ -325,6 +326,7 @@ export default {
         if (this.adopter.id) {
           this.adopter = this.getStorableAdopter(this.adopter, this.pet);
           this.adoptersService.update(this.adopter.id, this.adopter)
+
         } else {
           this.adopter.id = 0;
           console.log(this.adopter);
@@ -333,12 +335,13 @@ export default {
             this.adopters.push(this.adopter);
             console.log(response);
           });
+
         }
         this.adopter = {};
+
         this.displayInformation = false;
         this.displayDescription = false;
       }
-
     },
     openDescription(pet) {
       console.log(pet);
@@ -369,13 +372,13 @@ h1{
 }
 .card {
   background: #ffffff;
-  padding: 2rem;
+  padding: 0.5rem;
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
     0 1px 3px 0 rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   margin-bottom: 2rem;
 }
-.pv-dropdown {
+pv-dropdown {
   width: 14rem;
   font-weight: normal;
 }
@@ -405,14 +408,10 @@ h1{
   padding: 1rem;
   width: 100%;
 }
-.product-grid-item-item:hover{
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+.product-grid-item:hover{
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-pv-img {
-  margin-top: 5rem;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  margin-right: 2rem;
-}
+
 .product-list-detail {
   flex: 1 1 0;
   margin-left: 1rem
@@ -434,7 +433,7 @@ pv-img {
   flex-direction: column;
 }
 
-.pv-button {
+pv-button {
   margin-bottom: 0.5rem;
 }
 
@@ -449,7 +448,7 @@ pv-img {
   justify-content: space-between;
 }
 
-.image {
+pv-image {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   margin: 2rem 0;
   width: 100px;
