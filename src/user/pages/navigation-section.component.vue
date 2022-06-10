@@ -17,7 +17,7 @@ export default{
 <template>
   <pv-toolbar class="bg-blue-500">
     <template #start>
-      <h3>MegaPet</h3>
+      <pv-img src="https://i.postimg.cc/25V8GQMp/logo.png" />
     </template>
     <template #end>
       <div>

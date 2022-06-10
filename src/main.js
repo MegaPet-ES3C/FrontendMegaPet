@@ -29,6 +29,7 @@ import Password from "primevue/password";
 import Divider from "primevue/divider";
 import InputMask from "primevue/inputmask";
 import Calendar from "primevue/calendar";
+import AutoComplete from "primevue/autocomplete";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
 import ToastService from "primevue/toastservice";
 
@@ -63,6 +64,7 @@ app.component("pv-password", Password);
 app.component("pv-divider", Divider);
 app.component("pv-input-mask", InputMask);
 app.component("pv-calendar", Calendar);
+app.component("pv-autocomplete", AutoComplete);
 app.component("pv-data-view-layout-options", DataViewLayoutOptions)
 // App mounting
 

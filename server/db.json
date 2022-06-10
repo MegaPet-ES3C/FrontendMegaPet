@@ -183,17 +183,7 @@
       "birthday": "2022-05-01T05:00:00.000Z"
     }
   ],
-  "adopters": [
-    {
-      "id": 1,
-      "name": "Miguel",
-      "lastName": "Example",
-      "gender": "asd",
-      "age": "asd",
-      "status": "asd",
-      "description": "asd"
-    }
-  ],
+  "adopters": [],
   "shelters": [
     {
       "id": 1,

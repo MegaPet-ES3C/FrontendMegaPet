@@ -115,7 +115,7 @@
               <pv-button
                 label="Help"
                 :disabled="slotProps.data.inventoryStatus === 'UNAVAILABLE'"
-                @click="openDialog"
+                @click="openDialog(slotProps.data)"
               />
             </div>
           </div>
@@ -133,40 +133,46 @@
       :modal="true"
       class="p-fluid"
     >
-      <div class="field mt-3">
+      <div class="field mt-4">
         <span class="p-float-label">
-          <pv-input-text type="text" id="name" v-model.trim="adopter.name" required="true" :class="{ 'p-invalid': submitted && !adopter.name }"/>
+          <pv-input-text  type="text" id="name" v-model.trim="adopter.name" required="true" :class="{ 'p-invalid': submitted && !adopter.name }"/>
           <label for="name"> Name </label>
         </span>
       </div>
-      <div class="field mt-3">
+      <div class="field mt-4">
         <span class="p-float-label">
-          <pv-input-text type="text" id="name" v-model.trim="adopter.lastName" required="true" :class="{ 'p-invalid': submitted && !adopter.lastName }"/>
-          <label for="name"> Last Name </label>
+          <pv-input-text type="text" id="lastName" v-model.trim="adopter.lastName" required="true" :class="{ 'p-invalid': submitted && !adopter.lastName }"/>
+          <label for="lastName"> Last Name </label>
         </span>
       </div>
-      <div class="field mt-3">
+      <div class="field mt-4">
         <span class="p-float-label">
-          <pv-input-text type="text" id="name" v-model.trim="adopter.gender" required="true" :class="{ 'p-invalid': submitted && !adopter.gender }"/>
-          <label for="name"> Gender </label>
+          <pv-input-text type="text" id="gender" v-model.trim="adopter.gender" required="true" :class="{ 'p-invalid': submitted && !adopter.gender }"/>
+          <label for="gender"> Gender </label>
         </span>
       </div>
-      <div class="field mt-3">
+      <div class="field mt-4">
         <span class="p-float-label">
-          <pv-input-text type="text" id="name" v-model.trim="adopter.age" required="true" :class="{ 'p-invalid': submitted && !adopter.age }"/>
-          <label for="name"> Age </label>
+          <pv-input-text type="text" id="age" v-model.trim="adopter.age" required="true" :class="{ 'p-invalid': submitted && !adopter.age }"/>
+          <label for="age"> Age </label>
         </span>
       </div>
-      <div class="field mt-3">
+      <div class="field mt-4">
         <span class="p-float-label">
-          <pv-input-text type="text" id="name" v-model.trim="adopter.status" required="true" :class="{ 'p-invalid': submitted && !adopter.status }"/>
-          <label for="name"> Status </label>
+          <pv-input-text type="text" id="status" v-model.trim="adopter.status" required="true" :class="{ 'p-invalid': submitted && !adopter.status }"/>
+          <label for="status"> Status </label>
         </span>
       </div>
-      <div class="field mt-3">
+      <div class="field mt-4">
         <span class="p-float-label">
-          <pv-input-text type="text" id="name" v-model.trim="adopter.description" required="true" :class="{ 'p-invalid': submitted && !adopter.description }"/>
-          <label for="name"> Description </label>
+          <pv-input-text type="text" id="description" v-model.trim="adopter.description" required="true" :class="{ 'p-invalid': submitted && !adopter.description }"/>
+          <label for="description"> Description </label>
+        </span>
+      </div>
+      <div class="field">
+        <span>
+          <label><b>Pet choosed</b></label>
+          <pv-input-text type="text"  v-model="pet.id"  :class="{ 'p-invalid': submitted && !adopter.petId }" disabled/>
         </span>
       </div>
       <template #footer>
@@ -255,7 +261,7 @@ export default {
     this.initFilters();
   },
   methods: {
-    getStorableAdopter(displayableAdopter) {
+    getStorableAdopter(displayableAdopter, displayablePet) {
       return {
         id: displayableAdopter.id,
         name: displayableAdopter.name,
@@ -264,6 +270,7 @@ export default {
         age: displayableAdopter.age,
         status: displayableAdopter.status,
         description: displayableAdopter.description,
+        petId: displayablePet.id
       }
     },
 
@@ -298,8 +305,12 @@ export default {
     hideDialog() {
       this.displayInformation = false;
     },
-    openDialog() {
+    openDialog(pet) {
       this.displayInformation = true;
+
+      console.log(pet);
+      this.pet = { ...pet };
+      console.log(this.pet);
     },
     openSubscriptionDialog() {
       this.submitted = true;
@@ -312,12 +323,12 @@ export default {
           this.adopter.description.trim()
       ) {
         if (this.adopter.id) {
-          this.adopter = this.getStorableAdopter(this.adopter);
+          this.adopter = this.getStorableAdopter(this.adopter, this.pet);
           this.adoptersService.update(this.adopter.id, this.adopter)
         } else {
           this.adopter.id = 0;
           console.log(this.adopter);
-          this.adopter = this.getStorableAdopter(this.adopter);
+          this.adopter = this.getStorableAdopter(this.adopter, this.pet);
           this.adoptersService.create(this.adopter).then((response) => {
             this.adopters.push(this.adopter);
             console.log(response);
