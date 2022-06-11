@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="flex justify-content-center mb-5">
-      <pv-img src="https://i.ibb.co/jDVftXw/icon.png" />
+      <pv-img src="https://i.ibb.co/V0FB0MQ/icon.png" />
     </div>
     <div class="grid">
       <div class="col-5 flex justify-content-center">

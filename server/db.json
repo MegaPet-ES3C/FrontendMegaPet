@@ -183,26 +183,8 @@
       "password": "Miguel32"
     }
   ],
-  "adopters": [
-    {
-      "id": 1,
-      "name": "Miguel",
-      "lastName": "Example",
-      "gender": "asd",
-      "age": "asd",
-      "status": "asd",
-      "description": "asd"
-    },
-    {
-      "id": 2,
-      "name": "dad",
-      "lastName": "dd",
-      "gender": "dd",
-      "age": "dd",
-      "status": "dd",
-      "description": "dd"
-    }
-  ],
+  "adopters": [],
+
   "shelters": [
     {
       "id": 1,
