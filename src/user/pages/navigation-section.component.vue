@@ -8,7 +8,6 @@ export default{
         { label: "Profile", to: "/profile" },
         { label: "Search", to: "/search" },
         { label: "Shelter", to: "/shelter"},
-        { label: "ShelterProfile", to: "/shelterProfile"}
       ],
     };
   },
