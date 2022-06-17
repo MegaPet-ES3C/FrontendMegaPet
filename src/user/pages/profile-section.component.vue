@@ -40,7 +40,7 @@
   </div>
 
 
-  <pv-dialog v-model:visible="editInfoProfile" :style="{width: '650px'}" header="challenge Information" :model="true" class="p-fluid">
+  <pv-dialog v-model:visible="editInfoProfile" :style="{width: '650px'}" header="Edit Information" :model="true" class="p-fluid">
 
     <div class="field mt-5">
       <span class="p-float-label">
@@ -110,7 +110,7 @@ export default {
   },
   created() {
     this.userService = new UsersApiService();
-    this.userService.getById(5).then((response) => {
+    this.userService.getById(localStorage.getItem("clientId")).then((response) => {
       this.user = response.data;
       console.log("created");
     });

@@ -4,9 +4,6 @@ export class UsersApiService {
   getAll() {
       return http.get("/users");
   }
-  getByEmailAndPassword(email, password) {
-      return http.get(`/users?email=${email}$password=${ password }`);
-  }
   getById(id) {
       return http.get(`/users/${id}`);
   }
@@ -19,4 +16,5 @@ export class UsersApiService {
   delete(id) {
       return http.delete(`/users/${id}`);
   }
+
 }

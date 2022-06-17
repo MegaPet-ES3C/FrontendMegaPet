@@ -5,26 +5,31 @@
     </div>
     <div class="grid">
       <div class="col-5 flex justify-content-center">
-        <div class="p-fluid">
-          <div class="p-inputgroup mb-2">
+        <v-form ref="form" v-model="form.isValid">
+          <div class="p-fluid">
+            <p :class="wrongEmailorPassword ? 'd-block' : 'd-none'">Wrong Email or Password</p>
+            <div class="p-inputgroup mb-2">
             <span class="p-inputgroup-addon">
               <i class="pi pi-user"></i>
             </span>
-            <pv-input-text id="username" type="text" placeHolder="Email" />
-          </div>
-          <div class="p-inputgroup mb-2">
+              <pv-input-text id="username" type="text" placeHolder="Email" v-model="form.email" />
+            </div>
+            <div class="p-inputgroup mb-2">
             <span class="p-inputgroup-addon">
               <i class="pi pi-key" />
             </span>
 
-            <pv-input-text
-              id="password"
-              type="password"
-              placeHolder="Password"
-            />
+              <pv-input-text
+                  id="password"
+                  type="password"
+                  placeHolder="Password"
+                  v-model="form.password"
+              />
+            </div>
+            <pv-button label="Login"  @click="login()"></pv-button>
           </div>
-          <pv-button label="Login" @click="openNext"></pv-button>
-        </div>
+        </v-form>
+
       </div>
       <div class="col-2">
         <pv-divider layout="vertical">
@@ -46,15 +51,21 @@
 
 <script>
 import { UsersApiService } from "../../user/services/users-api.service";
+import UsersService from "../../user/services/users.service";
 
 export default {
   name: "HomeFView",
   data() {
     return {
-      submit: false,
+      form: {
+        email: "",
+        password: "",
+        isValid: false
+      },
       users: [],
       user: {},
-      userService: null
+      userService: null,
+      wrongEmailorPassword: false,
     };
   },
 
@@ -67,10 +78,31 @@ export default {
   },
 
   methods: {
-    openNext() {
-      this.$router.push("/user");
-    },
 
+    submit(){
+      this.form = { email: "", password: "" };
+    },
+    async login(){
+      let noLogin = true;
+
+
+      await UsersService.getByEmailAndPassword(this.form.email, this.form.password)
+          .then(response => {
+            if (response.data.length !== 0) {
+              localStorage.setItem('clientId', response.data[0].id.toString());
+              noLogin = false;
+              this.$router.push("/user");
+            }
+          })
+          .catch(e => {
+            console.log(e);
+          })
+      if (noLogin){
+        this.wrongEmailorPassword = true;
+      } else {
+        this.submit();
+      }
+    }
 
 
   },

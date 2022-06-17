@@ -326,7 +326,6 @@ export default {
         if (this.adopter.id) {
           this.adopter = this.getStorableAdopter(this.adopter, this.pet);
           this.adoptersService.update(this.adopter.id, this.adopter)
-
         } else {
           this.adopter.id = 0;
           console.log(this.adopter);
@@ -335,10 +334,9 @@ export default {
             this.adopters.push(this.adopter);
             console.log(response);
           });
-
         }
         this.adopter = {};
-
+        this.pet.status = "UNAVAILABLE";
         this.displayInformation = false;
         this.displayDescription = false;
       }
