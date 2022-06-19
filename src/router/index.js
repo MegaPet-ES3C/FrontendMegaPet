@@ -18,6 +18,11 @@ const router = createRouter({
           path: "/register",
           name: "Register",
           component: () => import("../views/FreeViews/RegisterFView.vue")
+        },
+        {
+          path: "/registerShelter",
+          name: "RegisterShelter",
+          component: () => import("../views/FreeViews/RegisterShelterFView.vue")
         }
       ]
     },

@@ -8,7 +8,7 @@
 
         </template>
         <template #content>
-          <h4 class="text-center">If you are an organization, please <a class="font-bold no-underline text-blue-500 cursor-pointer hover:text-blue-700" @click="$router.push(':/')">click here</a></h4>
+          <h4 class="text-center">If you are an organization, please <a class="font-bold no-underline text-blue-500 cursor-pointer hover:text-blue-700" @click="$router.push(':/registerShelter')">click here</a></h4>
           <div class="field mt-3">
             <span class="p-float-label p-input-icon-right justify-content-center">
               <pv-input-text type="text" id="name" v-model.trim="user.name" required="true" :class="{ 'p-invalid': submitted && !user.name }" />

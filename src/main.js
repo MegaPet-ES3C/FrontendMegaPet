@@ -11,6 +11,7 @@ import "primeicons/primeicons.css";
 // PrimeFlex Companion
 import "primeflex/primeflex.css";
 
+import Steps from "primevue/steps";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Button from "primevue/button";
@@ -49,6 +50,7 @@ app.use(ToastService);
 
 // PrimeVue Components
 app.component("pv-data-table", DataTable);
+app.component("pv-steps", Steps);
 app.component("pv-checkbox", Checkbox);
 app.component("pv-column", Column);
 app.component("pv-button", Button);
