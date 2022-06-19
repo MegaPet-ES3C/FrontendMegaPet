@@ -22,10 +22,11 @@
       <pv-input-text type="text" id="image" v-model.trim="shelter.image" /><br><br>
 
       <pv-button type="submit" label="Submit" icon="pi pi-check" autofocus />
+      <pv-button label="Cancelar" icon="pi pi-times" @click="displayBasic = false"/>
     </form>
 
     <template #footer>
-      <pv-button label="Cancelar" icon="pi pi-times" @click="displayBasic = false"/>
+
 
     </template>
 

@@ -114,6 +114,8 @@
               >
               <pv-button
                 label="Help"
+                class="var(--surface-border)  transition-colors transition-duration-500 bg-orange-400 hover:bg-blue-500 text-white hover:text-gray-900
+                       flex align-items-center justify-content-center font-bold border-round cursor-pointer border-orange-400 hover:border-blue-500"
                 :disabled="slotProps.data.inventoryStatus === 'UNAVAILABLE'"
                 @click="openDialog(slotProps.data)"
               />
@@ -307,11 +309,14 @@ export default {
       this.displayInformation = false;
     },
     openDialog(pet) {
+
       this.displayInformation = true;
 
       console.log(pet);
       this.pet = { ...pet };
       console.log(this.pet);
+      this.$toast.add({severity:'success', summary: 'Success Message', detail:'Message Content', life: 3000});
+
     },
     openSubscriptionDialog() {
       this.submitted = true;

@@ -181,20 +181,9 @@
       "email": "tucto32@gmail.com",
       "birthday": "2022-05-01T05:00:00.000Z",
       "password": "Miguel32"
-    },
-    {
-      "id": 6,
-      "name": "Example",
-      "lastName": "Prueba",
-      "phone": "(051) 999-999-999",
-      "email": "example@gmail.com",
-      "password": "Example123",
-      "birthday": "2022-06-01T05:00:00.000Z"
     }
   ],
-  "adopters": [
-
-  ],
+  "adopters": [],
   "shelters": [
     {
       "id": 1,

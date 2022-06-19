@@ -32,6 +32,8 @@ import InputMask from "primevue/inputmask";
 import Calendar from "primevue/calendar";
 import AutoComplete from "primevue/autocomplete";
 import DataViewLayoutOptions from "primevue/dataviewlayoutoptions";
+import Checkbox from "primevue/checkbox";
+import Chip from "primevue/chip";
 import ToastService from "primevue/toastservice";
 
 
@@ -47,6 +49,7 @@ app.use(ToastService);
 
 // PrimeVue Components
 app.component("pv-data-table", DataTable);
+app.component("pv-checkbox", Checkbox);
 app.component("pv-column", Column);
 app.component("pv-button", Button);
 app.component("pv-toolbar", Toolbar);
@@ -66,6 +69,7 @@ app.component("pv-divider", Divider);
 app.component("pv-input-mask", InputMask);
 app.component("pv-calendar", Calendar);
 app.component("pv-autocomplete", AutoComplete);
+app.component("pv-chip", Chip);
 app.component("pv-data-view-layout-options", DataViewLayoutOptions)
 // App mounting
 

@@ -7,7 +7,7 @@
       <div class="col-5 flex justify-content-center">
         <v-form ref="form" v-model="form.isValid">
           <div class="p-fluid">
-            <p :class="wrongEmailorPassword ? 'd-block' : 'd-none'">Wrong Email or Password</p>
+            <b><p :class="wrongEmailorPassword ? 'd-block' : 'd-none'" class="text-red-500">Wrong Email or Password</p></b>
             <div class="p-inputgroup mb-2">
             <span class="p-inputgroup-addon">
               <i class="pi pi-user"></i>
@@ -19,12 +19,8 @@
               <i class="pi pi-key" />
             </span>
 
-              <pv-input-text
-                  id="password"
-                  type="password"
-                  placeHolder="Password"
-                  v-model="form.password"
-              />
+              <pv-password v-model="form.password" :feedback="false" toggleMask placeholder="Password"/>
+
             </div>
             <pv-button label="Login"  @click="login()"></pv-button>
           </div>
@@ -37,7 +33,7 @@
         </pv-divider>
       </div>
       <div class="col-5 flex align-items-center justify-content-center">
-        <a href="/Register" style="text-decoration: none"
+        <a @click="$router.push('/register')" style="text-decoration: none"
           ><pv-button
             label="Sign Up"
             icon="pi pi-user-plus"

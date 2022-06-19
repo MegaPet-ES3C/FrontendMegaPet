@@ -1,11 +1,14 @@
 <template>
   <div class="form-demo">
+    <pv-button icon="pi pi-arrow-left" class="p-button-rounded p-button-primary ml-7" @click="$router.push(':/')"/>
     <div class="flex justify-content-center ">
       <pv-card class="card shadow-8 p-fluid" style="width: 50%">
         <template #title>
-          <h2 class="text-center">Register</h2>
+          <h1 class="text-center">Register</h1>
+
         </template>
         <template #content>
+          <h4 class="text-center">If you are an organization, please <a class="font-bold no-underline text-blue-500 cursor-pointer hover:text-blue-700" @click="$router.push(':/')">click here</a></h4>
           <div class="field mt-3">
             <span class="p-float-label p-input-icon-right justify-content-center">
               <pv-input-text type="text" id="name" v-model.trim="user.name" required="true" :class="{ 'p-invalid': submitted && !user.name }" />
@@ -75,11 +78,12 @@
         ></i>
         <h1>Registration Successful!</h1>
         <p>
-          Thanks for your registration! Now you can enjoy our app web :)</p>
+          Thanks for your registration <b>{{ user.name }}</b>! Now you can enjoy our app web. You'll receive an email (<b>{{ user.email }}</b>) to confirm your account
+        </p>
       </div>
       <template #footer>
         <div class="flex justify-content-center">
-          <a href="/User" style=" text-decoration: none"><pv-button label="OK" @click="toggleDialog" class="p-button-icon-left" icon="pi pi-angle-double-right" ref="/home"/></a>
+          <a style=" text-decoration: none"><pv-button label="OK" @click="toggleDialog" class="p-button-icon-left" icon="pi pi-angle-double-right" /></a>
         </div>
       </template>
     </pv-dialog>
@@ -90,6 +94,7 @@
 
 
 import { UsersApiService } from "../../user/services/users-api.service";
+import router from "../../router";
 
 export default {
 
@@ -126,19 +131,7 @@ export default {
 
     toggleDialog() {
       this.showMessage = !this.showMessage;
-
-      if (!this.showMessage) {
-        this.resetForm();
-      }
-    },
-    resetForm() {
-      this.name = "";
-      this.lastName = "";
-      this.phone = "";
-      this.email = "";
-      this.password = "";
-      this.birthday = null;
-      this.submitted = false;
+      router.push("/");
     },
     editUser(user) {
       console.log(user);
@@ -170,7 +163,6 @@ export default {
             console.log(response);
           });
         }
-        this.user = {};
         this.showMessage = true;
       }
 

@@ -1,19 +1,3 @@
-<script>
-export default{
-  name: "navigation-section",
-  data() {
-    return {
-      drawer: false,
-      items: [
-        { label: "Profile", to: "/profile" },
-        { label: "Search", to: "/search" },
-        { label: "Shelter", to: "/shelter"},
-      ],
-    };
-  },
-};
-</script>
-
 <template>
   <pv-toolbar class="bg-blue-500">
     <template #start>
@@ -23,12 +7,40 @@ export default{
       <div>
         <router-link v-for="item in items" :to="item.to" custom v-slot="{ navigate, href }" :key="item.label">
           <pv-button class="p-button-text text-white" :href="href" @click="navigate">{{ item.label }}</pv-button>
+
         </router-link>
+
       </div>
+
     </template>
   </pv-toolbar>
   <RouterView />
 </template>
+<script>
+import { UsersApiService } from "../services/users-api.service";
 
+export default{
+  name: "navigation-section",
+  data() {
+    return {
+      drawer: false,
+      userService: null,
+      user: null,
+      items: [
+        { label: "Profile", to: "/profile" },
+        { label: "Search", to: "/search" },
+        { label: "Shelter", to: "/shelter"},
+      ],
+    };
+  },
+  created() {
+    this.userService = new UsersApiService();
+    this.userService.getById(localStorage.getItem("clientId")).then((response)=>{
+      this.user = response.data();
+      console.log("created");
+    });
+  },
+};
+</script>
 <style>
 </style>

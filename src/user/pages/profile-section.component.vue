@@ -1,7 +1,7 @@
 <template>
   <body class="card">
 
-  <div class="Profile">
+  <div class="Profile bg-light-blue-lighten-4">
     <div class="card_header">
       <div class="Image">
         <img :src='user.image' style="width:10rem"/>
@@ -213,7 +213,7 @@ body{
   overflow: hidden;
 }
 .card_header {
-  background-color: rgba(20, 222, 220,0.90);
+
   padding: 60px 40px;
 }
 .Image{
