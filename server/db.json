@@ -2,55 +2,47 @@
   "pets": [
     {
       "id": 1,
-      "code": "f230fh0g3",
       "name": "Samy",
       "description": "His name is Samy, who was received by a veterinary group because he was at risk. She lived on the street and took refuge from time to time in a cardboard box, her body was marked by abandonment, suffering and indifference.\nShe suffered from distemper, parasites, scabies, malnutrition and other diseases, it is very sad to see such a depressing state of an animal that she is not to blame for anything. During the first year Samy she was in a very bad state, she was not sure if she could be saved.\n\nAfter a while, Samy began to improve markedly, and the positive results of the intensive care she underwent began to be seen. Today Samy is super happy in her new home.",
       "image": "https://images.pexels.com/photos/1851164/pexels-photo-1851164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "rescuedTime": 20,
       "category": "BABY",
-      "quantity": 24,
       "inventoryStatus": "AVAILABLE",
       "rating": 5,
-      "userId": 1
+      "adopterId": 1
     },
     {
       "id": 2,
-      "code": "f230fh0g3",
       "name": "Lucero",
       "description": "Her name is Lucero. She was rescued by a dog care group in a somewhat sad situation in that she was unable to walk due to an injury to her spine and hip.\n\nLucero never gave up until she finally took her first steps on the right path. Despite her hip dysplasia, Lucero is able to walk and run like any other dog and she is very happy at the shelter.",
       "image": "https://images.pexels.com/photos/825947/pexels-photo-825947.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "rescuedTime": 10,
       "category": "BABY",
-      "quantity": 24,
       "inventoryStatus": "AVAILABLE",
       "rating": 5,
-      "userId": 1
+      "adopterId": 1
     },
     {
       "id": 3,
-      "code": "f230fh0g3",
       "name": "Loba",
       "description": "They found her in a very critical condition, it was really very difficult to think that she could be saved, she suffered from scabies, extreme malnutrition among other infections, but with the help of good people and the will to live of this beautiful dog she was able to defeat death.\n\nAfter a few months of recovery she was adopted by a family and is happy and running around the garden with other dogs.",
       "image": "https://images.pexels.com/photos/2318990/pexels-photo-2318990.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "rescuedTime": 1,
       "category": "YOUNGER",
-      "quantity": 24,
       "inventoryStatus": "AVAILABLE",
       "rating": 5,
-      "userId": 1
+      "adopterId": 1
     },
     {
       "id": 4,
-      "code": "f230fh0g3",
       "name": "Domitilia",
       "description": "Before calling herself Domitila and having a family, 'Domi' was rescued after living for several years in a market in San Juan de Miraflores. When she was found, she had almost no hair and her body was full of scabies, fungus and bacteria. \"She fed herself with the leftovers that she found at the food stalls,\" says Anais Anaya, rescuer and founder of Animal Voice, one of the shelters affiliated with WUF.",
       "image": "https://images.pexels.com/photos/895259/pexels-photo-895259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "rescuedTime": 5,
       "category": "YOUNGER",
-      "quantity": 24,
       "inventoryStatus": "AVAILABLE",
       "rating": 5,
-      "userId": 2
+      "adopterId": 2
     },
     {
       "id": 5,
@@ -60,10 +52,9 @@
       "image": "https://images.pexels.com/photos/1390784/pexels-photo-1390784.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "rescuedTime": 11,
       "category": "BABY",
-      "quantity": 24,
       "inventoryStatus": "AVAILABLE",
       "rating": 5,
-      "userId": 2
+      "adopterId": 2
     },
     {
       "id": 6,
@@ -73,10 +64,9 @@
       "image": "https://images.pexels.com/photos/46505/swiss-shepherd-dog-dog-pet-portrait-46505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "rescuedTime": 20,
       "category": "BABY",
-      "quantity": 24,
       "inventoryStatus": "UNAVAILABLE",
       "rating": 5,
-      "userId": 2
+      "adopterId": 2
     },
     {
       "id": 7,
@@ -86,10 +76,9 @@
       "image": "https://images.pexels.com/photos/1420405/pexels-photo-1420405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "rescuedTime": 25,
       "category": "BABY",
-      "quantity": 24,
       "inventoryStatus": "UNAVAILABLE",
       "rating": 5,
-      "userId": 3
+      "adopterId": 2
     },
     {
       "id": 8,
@@ -99,10 +88,9 @@
       "image": "https://images.pexels.com/photos/800330/pexels-photo-800330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "rescuedTime": 18,
       "category": "ADULT",
-      "quantity": 24,
       "inventoryStatus": "AVAILABLE",
       "rating": 5,
-      "userId": 4
+      "adopterId": 1
     },
     {
       "id": 9,
@@ -112,10 +100,9 @@
       "image": "https://images.pexels.com/photos/803766/pexels-photo-803766.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "rescuedTime": 19,
       "category": "YOUNGER",
-      "quantity": 24,
       "inventoryStatus": "AVAILABLE",
       "rating": 5,
-      "userId": 5
+      "adopterId": 2
     },
     {
       "id": 10,
@@ -125,17 +112,16 @@
       "image": "https://images.pexels.com/photos/1139794/pexels-photo-1139794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "rescuedTime": 30,
       "category": "YOUNGER",
-      "quantity": 24,
       "inventoryStatus": "UNAVAILABLE",
       "rating": 5,
-      "userId": 5
+      "adopterId": 2
     }
   ],
   "users": [
     {
       "id": 1,
       "name": "Miguel",
-      "lastName": "Tuctoo",
+      "lastName": "Tucto",
       "phone": "918514737",
       "image": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "email": "tucto32@gmail.com",
@@ -186,89 +172,66 @@
   "adopters": [
     {
       "id": 1,
-      "name": "asdddddddddddd",
-      "lastName": "asddddddddddddd",
-      "gender": "dasdddddddddd",
-      "age": "dddassssssssss",
-      "status": "asddddddddddddddddd",
-      "description": "adssssssssssssssss"
+      "name": "adsssssssssssssss",
+      "lastName": "sasdddddddddddd",
+      "gender": "ddasddddddddd",
+      "age": "dddddsdaaaaaaaaaaaaaa",
+      "status": "aasdddddddd",
+      "description": "asddddddddd"
     },
     {
       "id": 2,
-      "name": "asdasdasd",
-      "lastName": "asdadsads",
-      "gender": "adsadsads",
-      "age": "adsadadsads",
-      "status": "asddadsasd",
-      "description": "asdadsasdads"
+      "name": "adsssssssssssssss",
+      "lastName": "sasdddddddddddd",
+      "gender": "ddasddddddddd",
+      "age": "dddddsdaaaaaaaaaaaaaa",
+      "status": "aasdddddddd",
+      "description": "asddddddddd"
     },
     {
       "id": 3,
-      "name": "adsssssssssssss",
-      "lastName": "ssadssssssssssss",
-      "gender": "sadssssssssss",
-      "age": "ssadssssssssss",
-      "status": "ssadssssssss",
-      "description": "ssadssssssss"
+      "name": "adssssssssssssssssssssssssssssssssssssss",
+      "lastName": "ssssadsssssssssssssssssssssss",
+      "gender": "ssasdasdasdasd",
+      "age": "30",
+      "status": "asdasdas",
+      "description": "asdasdasd"
     },
     {
       "id": 4,
-      "name": "asdddddddddddddd",
-      "lastName": "asdddddddd",
-      "gender": "dddadssssssss",
-      "age": "ssadsssss",
-      "status": "sssads",
-      "description": "adsssssssss"
+      "name": "asdddddddd",
+      "lastName": "ddddadssssssssss",
+      "gender": "ssssasddddddddd",
+      "age": "ddddasddddddd",
+      "status": "dddddasdd",
+      "description": "dddadssssssss"
     },
     {
       "id": 5,
-      "name": "asddddddddddddd",
-      "lastName": "ddadssssssssssssssss",
-      "gender": "adsssssssssssssssssss",
-      "age": "sadsssssssssssssssss",
-      "status": "sadssssssssssssssss",
-      "description": "asdddddddddddddddddd",
-      "petId": 1
+      "name": "Samy",
+      "lastName": "dsgggggggg",
+      "gender": "gggggggsdddddddd",
+      "age": "ddgsssssssssssssssss",
+      "status": "gsd",
+      "description": "dddddddddddddsdg"
     },
     {
       "id": 6,
-      "name": "adsssssssss",
-      "lastName": "sssadssssssss",
-      "gender": "adssssssssss",
-      "age": "ssssasdddddddddd",
-      "status": "dasddddddddddd",
-      "description": "asdddddddddddd",
-      "petId": 1
+      "name": "adsssssssssss",
+      "lastName": "asddddddddd",
+      "gender": "ddasdddddd",
+      "age": "ddasdddddddd",
+      "status": "dasssssssss",
+      "description": "adssssssssssssssss"
     },
     {
       "id": 7,
-      "name": "asddddddddddddd",
-      "lastName": "asddddddddddddd",
-      "gender": "dasddddddddddd",
-      "age": "ddasdddddddddd",
-      "status": "ddddasdddddddddddddd",
-      "description": "asdddddddddddddd",
-      "petId": 1
-    },
-    {
-      "id": 8,
-      "name": "asdddddddddd",
-      "lastName": "adssssssssssssss",
-      "gender": "asdddddddd",
-      "age": "adssssssssss",
-      "status": "sasdddddddd",
-      "description": "dasdddddddddd",
-      "petId": 1
-    },
-    {
-      "id": 9,
-      "name": "asddddd",
-      "lastName": "adssssssss",
-      "gender": "asdddd",
-      "age": "asddddd",
-      "status": "asdasd",
-      "description": "asdasdasd",
-      "petId": 1
+      "name": "adsssssssssssssssss",
+      "lastName": "ssssssadsssssssssssssssss",
+      "gender": "ssssadsssssssssssssss",
+      "age": "sadssssssssssssssss",
+      "status": "adsssssssssssssss",
+      "description": "asddddddddddddddddd"
     }
   ],
   "shelters": [

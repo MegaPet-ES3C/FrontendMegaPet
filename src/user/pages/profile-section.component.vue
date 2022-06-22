@@ -162,6 +162,7 @@ export default {
               });
               console.log(response);
             });
+          this.editInfoProfile=false;
         } else {
           this.user.id=0;
           console.log(this.user);
@@ -176,8 +177,9 @@ export default {
             });
             console.log(response);
           });
+          this.editInfoProfile=false;
         }
-        this.editInfoProfile=false;
+
       }
     },
 

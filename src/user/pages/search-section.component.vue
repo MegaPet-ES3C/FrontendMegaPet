@@ -171,12 +171,6 @@
           <label for="description"> Description </label>
         </span>
       </div>
-      <div class="field">
-        <span>
-
-          <pv-input-text type="text"  v-model.trim="pet.id"  :class="{ 'p-invalid': submitted && !pet.id }" />
-        </span>
-      </div>
       <template #footer>
         <pv-button
           label="No"
@@ -187,7 +181,7 @@
         <pv-button
           label="Yes"
           icon="pi pi-check"
-          @click="openSubscriptionDialog"
+          @click="openSubscriptionDialog(this.adopter)"
           autofocus
         />
       </template>
@@ -210,6 +204,71 @@
           </pv-card>
         </div>
       </div>
+    </pv-dialog>
+    <pv-dialog header="Help Form" v-model:visible="displayHelpForm" :style="{ width: '450px' }" :modal="true" class="p-fluid" >
+      <label><b>Adopter choosed <i>{{ this.adopter.name }}</i> </b></label>
+      <div class="field mt-4">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.name" required="true" :class="{ 'p-invalid': submitted && !pet.name }"/>
+          <label for="name"> Name </label>
+        </span>
+      </div>
+      <div class="field mt-4">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.description" required="true" :class="{ 'p-invalid': submitted && !pet.name }"/>
+          <label for="description"> Description </label>
+        </span>
+      </div>
+      <div class="field mt-4">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.image" required="true" :class="{ 'p-invalid': submitted && !pet.name }"/>
+          <label for="image"> Image </label>
+        </span>
+      </div>
+      <div class="field mt-4">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.rescuedTime" required="true" :class="{ 'p-invalid': submitted && !pet.name }"/>
+          <label for="rescuedTime"> Rescued Time </label>
+        </span>
+      </div>
+      <div class="field mt-4">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.category" required="true" :class="{ 'p-invalid': submitted && !pet.name }"/>
+          <label for="category"> Category </label>
+        </span>
+      </div>
+      <div class="field mt-4">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.inventoryStatus" required="true" :class="{ 'p-invalid': submitted && !pet.name }"/>
+          <label for="status"> Status  </label>
+        </span>
+      </div>
+      <div class="field mt-4">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.rating" required="true" :class="{ 'p-invalid': submitted && !pet.name }"/>
+          <label for="rating"> Rating </label>
+        </span>
+      </div>
+      <div class="field mt-4">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="adopter.id" required="true" :class="{ 'p-invalid': submitted && !adopter.id }"/>
+          <label for="adopterId"> AdopterID </label>
+        </span>
+      </div>
+      <template #footer>
+        <pv-button
+            label="No"
+            icon="pi pi-times"
+            @click="hideDialog"
+            class="p-button-text"
+        />
+        <pv-button
+            label="Yes"
+            icon="pi pi-check"
+            @click="savePetWithAdopter"
+            autofocus
+        />
+      </template>
     </pv-dialog>
   </div>
 </template>
@@ -235,6 +294,7 @@ export default {
       filters: {},
       displayInformation: false,
       displayDescription: false,
+      displayHelpForm: false,
       sortOrder: null,
       sortField: null,
       submitted: false,
@@ -263,7 +323,7 @@ export default {
     this.initFilters();
   },
   methods: {
-    getStorableAdopter(displayableAdopter, displayablePet) {
+    getStorableAdopter(displayableAdopter) {
       return {
         id: displayableAdopter.id,
         name: displayableAdopter.name,
@@ -271,10 +331,23 @@ export default {
         gender: displayableAdopter.gender,
         age: displayableAdopter.age,
         status: displayableAdopter.status,
-        description: displayableAdopter.description,
-        petId: displayablePet.id
+        description: displayableAdopter.description
       }
     },
+    getStorablePet(displayablePet, displayableAdopter){
+      return {
+        id: displayablePet.id,
+        name: displayablePet.name,
+        description: displayablePet.description,
+        image: displayablePet.image,
+        rescuedTime: displayablePet.rescuedTime,
+        category: displayablePet.category,
+        inventoryStatus: displayablePet.inventoryStatus,
+        rating: displayablePet.rating,
+        adopterId: displayableAdopter.id
+      }
+    },
+
     onSortChange(event) {
       const value = event.value.value;
       const sortValue = event.value;
@@ -316,7 +389,14 @@ export default {
       this.$toast.add({severity:'success', summary: 'Success Message', detail:'Message Content', life: 3000});
 
     },
-    openSubscriptionDialog() {
+    openHelpForm(adopter){
+      this.displayHelpForm = true;
+
+      console.log(adopter);
+      this.adopter = { ...adopter };
+      console.log(this.adopter);
+    },
+    openSubscriptionDialog(adopter) {
       this.submitted = true;
       if (
           this.adopter.name.trim() &&
@@ -327,13 +407,13 @@ export default {
           this.adopter.description.trim()
       ) {
         if (this.adopter.id) {
-          this.adopter = this.getStorableAdopter(this.adopter, this.pet);
+          this.adopter = this.getStorableAdopter(this.adopter);
           this.adoptersService.update(this.adopter.id, this.adopter)
 
         } else {
           this.adopter.id = 0;
           console.log(this.adopter);
-          this.adopter = this.getStorableAdopter(this.adopter, this.pet);
+          this.adopter = this.getStorableAdopter(this.adopter);
           this.adoptersService.create(this.adopter).then((response) => {
             this.adopters.push(this.adopter);
             console.log(response);
@@ -344,6 +424,7 @@ export default {
 
         this.displayInformation = false;
         this.displayDescription = false;
+        this.openHelpForm(adopter);
       }
     },
     openDescription(pet) {
@@ -351,6 +432,25 @@ export default {
       this.pet = { ...pet };
       console.log(this.pet);
       this.displayDescription = true;
+
+    },
+    savePetWithAdopter(){
+      this.submitted = true;
+      if (this.pet.id){
+        this.pet = this.getStorablePet(this.pet, this.adopter);
+        this.petsService.update(this.pet.id, this.pet)
+        this.displayHelpForm = false;
+      } else{
+        this.pet.id = 0;
+        console.log(this.pet);
+        this.pet = this.getStorablePet(this.pet, this.adopter);
+        this.petsService.create(this.pet).then((response) => {
+          this.pets.push(this.pet);
+          console.log(response);
+        });
+        this.displayHelpForm = false;
+      }
+
 
     },
     closeDescription() {
