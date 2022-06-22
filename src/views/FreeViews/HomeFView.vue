@@ -47,8 +47,9 @@
 
 <script>
 import { UsersApiService } from "../../user/services/users-api.service";
+import { SheltersApiService } from "../../shelter/services/shelters-api.service";
 import UsersService from "../../user/services/users.service";
-
+import SheltersService from "../../shelter/services/shelters.service";
 export default {
   name: "HomeFView",
   data() {
@@ -60,7 +61,10 @@ export default {
       },
       users: [],
       user: {},
+      shelters: [],
+      shelter: {},
       userService: null,
+      shelterService: null,
       wrongEmailorPassword: false,
     };
   },
@@ -69,7 +73,12 @@ export default {
     this.userService = new UsersApiService();
     this.userService.getAll().then((response)=>{
       this.users=response.data();
-      console.log("crated");
+      console.log("created");
+    });
+    this.shelterService = new SheltersApiService();
+    this.shelterService.getAll().then((response) => {
+      this.shelters = response.data;
+      console.log("created");
     });
   },
 
@@ -90,6 +99,16 @@ export default {
               this.$router.push("/user");
             }
           })
+
+      await SheltersService.getByEmailAndPassword(this.form.email, this.form.password)
+          .then(response => {
+            if (response.data.length !== 0) {
+              localStorage.setItem('clientId', response.data[0].id.toString());
+              noLogin = false;
+              this.$router.push("/shelterSection");
+            }
+          })
+
           .catch(e => {
             console.log(e);
           })

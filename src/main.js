@@ -11,9 +11,12 @@ import "primeicons/primeicons.css";
 // PrimeFlex Companion
 import "primeflex/primeflex.css";
 
+import Fieldset from "primevue/fieldset";
+import Textarea from "primevue/textarea";
 import Steps from "primevue/steps";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
+import FileUpload from "primevue/fileupload";
 import Button from "primevue/button";
 import Toolbar from "primevue/toolbar";
 import InputText from "primevue/inputtext";
@@ -49,8 +52,10 @@ app.use(PrimeVue, { ripple: true });
 app.use(ToastService);
 
 // PrimeVue Components
+app.component("pv-field", Fieldset);
 app.component("pv-data-table", DataTable);
 app.component("pv-steps", Steps);
+app.component("pv-text-area", Textarea);
 app.component("pv-checkbox", Checkbox);
 app.component("pv-column", Column);
 app.component("pv-button", Button);
@@ -72,6 +77,7 @@ app.component("pv-input-mask", InputMask);
 app.component("pv-calendar", Calendar);
 app.component("pv-autocomplete", AutoComplete);
 app.component("pv-chip", Chip);
+app.component("pv-upload", FileUpload);
 app.component("pv-data-view-layout-options", DataViewLayoutOptions)
 // App mounting
 

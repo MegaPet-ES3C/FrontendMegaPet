@@ -93,7 +93,6 @@
                 slotProps.data.inventoryStatus
               }}</pv-tag>
             </div>
-
             <div class="product-grid-item-content">
               <pv-img :src="slotProps.data.image" width="150" class="mt-5" preview/>
 
@@ -175,7 +174,7 @@
       <div class="field">
         <span>
 
-          <pv-input-text type="text"  v-model="pet.id"  :class="{ 'p-invalid': submitted && !adopter.petId }" disabled/>
+          <pv-input-text type="text"  v-model.trim="pet.id"  :class="{ 'p-invalid': submitted && !pet.id }" />
         </span>
       </div>
       <template #footer>
@@ -276,7 +275,6 @@ export default {
         petId: displayablePet.id
       }
     },
-
     onSortChange(event) {
       const value = event.value.value;
       const sortValue = event.value;
@@ -331,6 +329,7 @@ export default {
         if (this.adopter.id) {
           this.adopter = this.getStorableAdopter(this.adopter, this.pet);
           this.adoptersService.update(this.adopter.id, this.adopter)
+
         } else {
           this.adopter.id = 0;
           console.log(this.adopter);
@@ -339,9 +338,10 @@ export default {
             this.adopters.push(this.adopter);
             console.log(response);
           });
+
         }
         this.adopter = {};
-        this.pet.status = "UNAVAILABLE";
+
         this.displayInformation = false;
         this.displayDescription = false;
       }

@@ -8,6 +8,7 @@ const router = createRouter({
       path: "/",
       component: FreeViews,
       redirect: "Home",
+      props:true,
       children: [
         {
           path: "/home",
@@ -22,7 +23,28 @@ const router = createRouter({
         {
           path: "/registerShelter",
           name: "RegisterShelter",
-          component: () => import("../views/FreeViews/RegisterShelterFView.vue")
+          component: () => import("../views/FreeViews/RegisterShelterFView.vue"),
+          children:[
+            {
+              path: "/registerShelter",
+              name: "FirstStep",
+              props: true,
+              component: () => import("../components/personalinformation-component.vue")
+            },
+            {
+              path: "/registerShelter/policy",
+              name: "SecondStep",
+              props: true,
+              component: () => import("../components/policy-component.vue")
+            },
+            {
+              path: "/registerShelter/lastStep",
+              name: "LastStep",
+              props: true,
+              component: () => import("../components/lastStep-component.vue")
+            }
+
+          ]
         }
       ]
     },
@@ -42,8 +64,8 @@ const router = createRouter({
           component: () => import("../user/pages/search-section.component.vue")
         },
         {
-          path: "/shelter",
-          name: "Shelter",
+          path: "/shelterSection",
+          name: "ShelterSection",
           component: () => import("../shelter/pages/shelter-section.component.vue")
         },
         {
@@ -51,6 +73,28 @@ const router = createRouter({
           name: "ShelterProfile",
           component: () => import("../shelter/pages/shelterProfile-section.component.vue")
         }
+      ]
+    },
+    {
+      path: "/shelterSection",
+      component: () => import("../shelter/pages/navigation-section.component.vue"),
+      redirect: "SearchSection",
+      children: [
+        {
+          path: "/shelterProfile",
+          name: "ShelterProfile",
+          component: () => import("../shelter/pages/shelterProfile-section.component.vue")
+        },
+        {
+          path: "/search",
+          name: "SearchSection",
+          component: () => import("../user/pages/search-section.component.vue")
+        },
+        {
+          path: "/shelter",
+          name: "Shelter",
+          component: () => import("../shelter/pages/shelter-section.component.vue")
+        },
       ]
     }
   ],

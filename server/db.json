@@ -135,12 +135,12 @@
     {
       "id": 1,
       "name": "Miguel",
-      "lastName": "Tucto",
+      "lastName": "Tuctoo",
       "phone": "918514737",
       "image": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "email": "tucto32@gmail.com",
-      "password": "Example123456",
-      "birthday": 24
+      "birthday": 24,
+      "password": "Example123456"
     },
     {
       "id": 2,
@@ -183,7 +183,94 @@
       "password": "Miguel32"
     }
   ],
-  "adopters": [],
+  "adopters": [
+    {
+      "id": 1,
+      "name": "asdddddddddddd",
+      "lastName": "asddddddddddddd",
+      "gender": "dasdddddddddd",
+      "age": "dddassssssssss",
+      "status": "asddddddddddddddddd",
+      "description": "adssssssssssssssss"
+    },
+    {
+      "id": 2,
+      "name": "asdasdasd",
+      "lastName": "asdadsads",
+      "gender": "adsadsads",
+      "age": "adsadadsads",
+      "status": "asddadsasd",
+      "description": "asdadsasdads"
+    },
+    {
+      "id": 3,
+      "name": "adsssssssssssss",
+      "lastName": "ssadssssssssssss",
+      "gender": "sadssssssssss",
+      "age": "ssadssssssssss",
+      "status": "ssadssssssss",
+      "description": "ssadssssssss"
+    },
+    {
+      "id": 4,
+      "name": "asdddddddddddddd",
+      "lastName": "asdddddddd",
+      "gender": "dddadssssssss",
+      "age": "ssadsssss",
+      "status": "sssads",
+      "description": "adsssssssss"
+    },
+    {
+      "id": 5,
+      "name": "asddddddddddddd",
+      "lastName": "ddadssssssssssssssss",
+      "gender": "adsssssssssssssssssss",
+      "age": "sadsssssssssssssssss",
+      "status": "sadssssssssssssssss",
+      "description": "asdddddddddddddddddd",
+      "petId": 1
+    },
+    {
+      "id": 6,
+      "name": "adsssssssss",
+      "lastName": "sssadssssssss",
+      "gender": "adssssssssss",
+      "age": "ssssasdddddddddd",
+      "status": "dasddddddddddd",
+      "description": "asdddddddddddd",
+      "petId": 1
+    },
+    {
+      "id": 7,
+      "name": "asddddddddddddd",
+      "lastName": "asddddddddddddd",
+      "gender": "dasddddddddddd",
+      "age": "ddasdddddddddd",
+      "status": "ddddasdddddddddddddd",
+      "description": "asdddddddddddddd",
+      "petId": 1
+    },
+    {
+      "id": 8,
+      "name": "asdddddddddd",
+      "lastName": "adssssssssssssss",
+      "gender": "asdddddddd",
+      "age": "adssssssssss",
+      "status": "sasdddddddd",
+      "description": "dasdddddddddd",
+      "petId": 1
+    },
+    {
+      "id": 9,
+      "name": "asddddd",
+      "lastName": "adssssssss",
+      "gender": "asdddd",
+      "age": "asddddd",
+      "status": "asdasd",
+      "description": "asdasdasd",
+      "petId": 1
+    }
+  ],
   "shelters": [
     {
       "id": 1,
@@ -228,6 +315,29 @@
       "location": "Callao",
       "address": "Jiron La union 160",
       "rating": 3
+    },
+    {
+      "id": 8,
+      "name": "El Huro Azul",
+      "email": "huroazul@gmail.com",
+      "password": "ElHuroAzul",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae sagittis odio, sit amet commodo mauris. Phasellus purus justo, tempor vel sem vel, scelerisque lobortis est. Cras diam nulla, maximus in gravida id, finibus quis erat. In at nisl eget eros facilisis gravida sed nec tortor. Nunc nec imperdiet leo. Sed et orci egestas, gravida dui sed, auctor nulla. Mauris in massa porta, feugiat arcu vitae, mattis mauris. Praesent posuere libero sit amet dapibus egestas.",
+      "url": "https://elhuronazul.net/",
+      "image": "https://elhuronazul.net/wp-content/uploads/2021/09/cropped-huron-azul--241x80.png",
+      "location": "Lima",
+      "address": "Av. Emancipacion 520"
+    },
+    {
+      "id": 9,
+      "name": "El Huro Azul",
+      "email": "huroazul@gmail.com",
+      "password": "Elhuro123",
+      "description": "asdasdasdasdadasd",
+      "url": "https://elhuronazul.net/",
+      "image": "https://elhuronazul.net/wp-content/uploads/2021/09/cropped-huron-azul--241x80.png",
+      "phone": "(051) 999-999-999",
+      "location": "Lima",
+      "address": "Av. Lucanas 120"
     }
   ],
   "countries": [

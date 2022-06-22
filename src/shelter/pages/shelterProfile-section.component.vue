@@ -116,7 +116,7 @@ export default {
   },
   created() {
     this.shelterService = new SheltersApiService();
-    this.shelterService.getById(1).then((response)=>{
+    this.shelterService.getById(localStorage.getItem("clientId")).then((response)=>{
       this.shelter = response.data;
       console.log("created");
     });

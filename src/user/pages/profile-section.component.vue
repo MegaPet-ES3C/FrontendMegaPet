@@ -3,8 +3,9 @@
 
   <div class="Profile bg-light-blue-lighten-4">
     <div class="card_header">
-      <div class="Image">
-        <img :src='user.image' style="width:10rem"/>
+
+      <div class="Image" >
+        <img  :src='user.image' style="width:10rem"/>
       </div>
       <div>
         <div class="UserName"> {{user.name}} </div>
@@ -38,6 +39,11 @@
       </div>
     </div>
   </div>
+
+
+
+
+
 
 
   <pv-dialog v-model:visible="editInfoProfile" :style="{width: '650px'}" header="Edit Information" :model="true" class="p-fluid">
@@ -96,6 +102,7 @@
 
 <script>
 import { UsersApiService } from "../services/users-api.service";
+import { SheltersApiService } from "../../shelter/services/shelters-api.service";
 
 export default {
   name: "profile-section.component",
@@ -105,7 +112,9 @@ export default {
       submitted:false,
       deleteChangeInfoProgile: false,
       user: null,
-      userService: null
+      shelter: null,
+      userService: null,
+      shelterService: null
     };
   },
   created() {
@@ -114,6 +123,13 @@ export default {
       this.user = response.data;
       console.log("created");
     });
+
+    this.shelterService = new SheltersApiService();
+    this.shelterService.getById(localStorage.getItem("clientId")).then((response) => {
+      this.shelter = response.data;
+      console.log("created");
+    });
+
   },
 
 
