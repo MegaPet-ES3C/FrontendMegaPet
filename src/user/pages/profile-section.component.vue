@@ -36,15 +36,19 @@
             </div>
           </div>
         </div>
+        <pv-button icon = "pi pi-th-large" class="p-button-secondary" @click="Visualizer()"/>
       </div>
     </div>
   </div>
 
 
+  <!-- Dialago del visualizador-->
 
+  <pv-dialog v-model:visible="visualizerButton" :style="{width: '650px'}" header="Pets Adopted" :model="true" class="p-fluid">
 
+  </pv-dialog>
 
-
+  <!-- Dialog del edit info-->
 
   <pv-dialog v-model:visible="editInfoProfile" :style="{width: '650px'}" header="Edit Information" :model="true" class="p-fluid">
 
@@ -109,6 +113,7 @@ export default {
   data() {
     return {
       editInfoProfile:false,
+      visualizerButton:false,
       submitted:false,
       deleteChangeInfoProgile: false,
       user: null,
@@ -139,6 +144,9 @@ export default {
       this.user={...Profile};
       console.log(this.user);
       this.editInfoProfile=true;
+    },
+    Visualizer(){
+      this.visualizerButton=true;
     },
     hideDialog(){
       this.editInfoProfile=false;
