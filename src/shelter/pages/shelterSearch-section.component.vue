@@ -3,30 +3,30 @@
   <div class="card">
 
     <pv-data-view
-      :value="pets"
-      :layout="layout"
-      :paginator="true"
-      :rows="9"
-      :sortOrder="sortOrder"
-      :sortField="sortField"
+        :value="pets"
+        :layout="layout"
+        :paginator="true"
+        :rows="9"
+        :sortOrder="sortOrder"
+        :sortField="sortField"
     >
 
       <template #header>
         <div class="grid grid-gutter">
           <div class="col-6" style="text-align: left">
             <pv-dropdown
-              v-model="sortKey"
-              :options="sortOptions"
-              optionLabel="label"
-              placeholder="Sort By Day"
-              @change="onSortChange($event)"
+                v-model="sortKey"
+                :options="sortOptions"
+                optionLabel="label"
+                placeholder="Sort By Day"
+                @change="onSortChange($event)"
             />
             <pv-dropdown
-              v-model="sortKey2"
-              :options="sortTypeOptions"
-              optionLabel="label"
-              placeholder="Sort By Type"
-              @change="onSortType($event)"
+                v-model="sortKey2"
+                :options="sortTypeOptions"
+                optionLabel="label"
+                placeholder="Sort By Type"
+                @change="onSortType($event)"
             />
           </div>
 
@@ -49,28 +49,28 @@
 
 
               <span class="product-category">{{
-                slotProps.data.category
-              }}</span>
+                  slotProps.data.category
+                }}</span>
             </div>
             <div class="product-list-action">
               <span class="product-price"
-                >{{ slotProps.data.rescuedTime }} day ago</span
+              >{{ slotProps.data.rescuedTime }} day ago</span
               >
               <pv-button
 
-                @click="openSubscriptionDialog"
-                label="Help"
-                :disabled="slotProps.data.inventoryStatus === 'UNAVAILABLE'"
-                style="margin-bottom: 5px"
+                  @click="openSubscriptionDialog"
+                  label="Help"
+                  :disabled="slotProps.data.inventoryStatus === 'UNAVAILABLE'"
+                  style="margin-bottom: 5px"
               />
               <pv-tag
-                v-if="slotProps.data.inventoryStatus === 'AVAILABLE'"
-                severity="success"
-                >{{ slotProps.data.inventoryStatus }}</pv-tag
+                  v-if="slotProps.data.inventoryStatus === 'AVAILABLE'"
+                  severity="success"
+              >{{ slotProps.data.inventoryStatus }}</pv-tag
               >
               <pv-tag v-else severity="info">{{
-                slotProps.data.inventoryStatus
-              }}</pv-tag>
+                  slotProps.data.inventoryStatus
+                }}</pv-tag>
             </div>
           </div>
         </div>
@@ -81,17 +81,17 @@
             <div class="product-grid-item-top">
               <div>
                 <span class="product-category">{{
-                  slotProps.data.category
-                }}</span>
+                    slotProps.data.category
+                  }}</span>
               </div>
               <pv-tag
-                v-if="slotProps.data.inventoryStatus === 'AVAILABLE'"
-                severity="success"
-                >{{ slotProps.data.inventoryStatus }}</pv-tag
+                  v-if="slotProps.data.inventoryStatus === 'AVAILABLE'"
+                  severity="success"
+              >{{ slotProps.data.inventoryStatus }}</pv-tag
               >
               <pv-tag v-else severity="danger">{{
-                slotProps.data.inventoryStatus
-              }}</pv-tag>
+                  slotProps.data.inventoryStatus
+                }}</pv-tag>
             </div>
             <div class="product-grid-item-content">
               <pv-img :src="slotProps.data.image" width="150" class="mt-5" preview/>
@@ -101,22 +101,22 @@
                 {{ slotProps.data.description }}
               </div>-->
               <pv-button label="See description" class="p-button-text" icon="pi pi-external-link" iconPos="right" @click="openDescription(slotProps.data)"/>
-             <!--  <pv-rating
-                :modelValue="slotProps.data.rating"
-                :readonly="true"
-                :cancel="false"
-              ></pv-rating>-->
+              <!--  <pv-rating
+                 :modelValue="slotProps.data.rating"
+                 :readonly="true"
+                 :cancel="false"
+               ></pv-rating>-->
             </div>
             <div class="product-grid-item-bottom mt-5">
               <span class="product-price"
               >Rescued <b style="color: #1c80cf">{{ slotProps.data.rescuedTime }}</b> days ago</span
               >
               <pv-button
-                label="Help"
-                class="var(--surface-border)  transition-colors transition-duration-500 bg-orange-400 hover:bg-blue-500 text-white hover:text-gray-900
+                  label="Help"
+                  class="var(--surface-border)  transition-colors transition-duration-500 bg-orange-400 hover:bg-blue-500 text-white hover:text-gray-900
                        flex align-items-center justify-content-center font-bold border-round cursor-pointer border-orange-400 hover:border-blue-500"
-                :disabled="slotProps.data.inventoryStatus === 'UNAVAILABLE'"
-                @click="openDialog(slotProps.data)"
+                  :disabled="slotProps.data.inventoryStatus === 'UNAVAILABLE'"
+                  @click="openDialog(slotProps.data)"
               />
             </div>
           </div>
@@ -128,11 +128,11 @@
 
     </pv-data-view>
     <pv-dialog
-      header="Help Form"
-      v-model:visible="displayInformation"
-      :style="{ width: '450px' }"
-      :modal="true"
-      class="p-fluid"
+        header="Help Form"
+        v-model:visible="displayInformation"
+        :style="{ width: '450px' }"
+        :modal="true"
+        class="p-fluid"
     >
       <label><b>Pet choosed <i>{{pet.name}}</i></b></label>
       <div class="field mt-4">
@@ -173,16 +173,16 @@
       </div>
       <template #footer>
         <pv-button
-          label="No"
-          icon="pi pi-times"
-          @click="hideDialog"
-          class="p-button-text"
+            label="No"
+            icon="pi pi-times"
+            @click="hideDialog"
+            class="p-button-text"
         />
         <pv-button
-          label="Yes"
-          icon="pi pi-check"
-          @click="openSubscriptionDialog(adopter)"
-          autofocus
+            label="Yes"
+            icon="pi pi-check"
+            @click="openSubscriptionDialog(adopter)"
+            autofocus
         />
 
       </template>
@@ -255,7 +255,7 @@
            <pv-input-text  type="text" id="name" v-model="adopter.id" required="true" :class="{ 'p-invalid': submitted && !adopter.id }" disabled/>
           <label for="rating"> AdopterID </label>
 
-          <!--<pv-multi-select v-model="this.adoptersService.adopters" :options="adopters" optionLabel="name" placeholder="Select Adopter" :filter="true" class="multiselect-custom" selectionLimit=1>
+          <pv-multi-select v-model="this.adoptersService.adopters" :options="adopters" optionLabel="name" placeholder="Select Adopter" :filter="true" class="multiselect-custom" selectionLimit=1>
             <template #value="slotProps">
               <div class="country-item country-item-value"  v-for="option of slotProps.value" :key="option.code">
                 <div>{{option.id}}</div>
@@ -271,7 +271,7 @@
                  <div>{{slotProps.option.name}}</div>
               </div>
             </template>
-          </pv-multi-select> -->
+          </pv-multi-select>
         </span>
       </div>
       <template #footer>
@@ -293,12 +293,12 @@
 </template>
 
 <script>
-import { PetsApiService } from "../services/pets-api.service";
+import { PetsApiService } from "../../user/services/pets-api.service";
 import { AdoptersApiService } from "../../adopter/services/adopters-api.service";
 import {FilterMatchMode} from "primevue/api";
 
 export default {
-  name: "search-section",
+  name: "shelterSearch-section.component",
   data() {
     return {
       pets: [],
@@ -490,7 +490,8 @@ export default {
       window.history.back();
     }
   },
-};
+
+}
 </script>
 
 <style scoped>
@@ -502,7 +503,7 @@ h1{
   background: #ffffff;
   padding: 0.5rem;
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
-    0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  0 1px 3px 0 rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   margin-bottom: 2rem;
 }
@@ -596,6 +597,6 @@ pv-image {
   align-content: center;
 }
 .imgDescription{
-    width: 100%;
+  width: 100%;
 }
 </style>

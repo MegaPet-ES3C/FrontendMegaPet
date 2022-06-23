@@ -7,7 +7,7 @@
       <template v-slot:content>
         <div class="flex flex-column card-container">
           <div class="flex row align-items-center justify-content-center">
-            <pv-input-text placeholder="Name" v-model.trim="shelter.name" class="mt-5"/>
+            <pv-input-text placeholder="Name" v-model="shelter.name" class="mt-5"/>
             <pv-input-mask id="phone" mask="(051) 999-999-999" v-model.trim="shelter.phone"  placeholder="(051) 999-999-999" class="mt-5 ml-7"/>
           </div>
           <div class="flex align-items-center justify-content-center">
@@ -96,23 +96,28 @@ export default {
       })
     },
     saveShelter(){
+      this.submitted = true;
+
       this.$emit("next-page",{
         formData:{},
         pageIndex: 0,
       })
-      if (this.shelter.id) {
-        this.shelter = this.getStorableShelter(this.shelter);
-        this.sheltersService
-            .update(this.shelter.id, this.shelter)
-      } else {
-        this.shelter.id = 0;
-        console.log(this.shelter);
-        this.shelter = this.getStorableShelter(this.shelter);
-        this.sheltersService.create(this.shelter).then((response) => {
-          this.shelters.push(this.shelter);
-          console.log(response);
-        });
-      }
+
+        if (this.shelter.id) {
+          this.shelter = this.getStorableShelter(this.shelter);
+          this.sheltersService
+              .update(this.shelter.id, this.shelter)
+        } else {
+          this.shelter.id = 0;
+          console.log(this.shelter);
+          this.shelter = this.getStorableShelter(this.shelter);
+          this.sheltersService.create(this.shelter).then((response) => {
+            this.shelters.push(this.shelter);
+            console.log(response);
+          });
+        }
+
+
     }
   }
 };

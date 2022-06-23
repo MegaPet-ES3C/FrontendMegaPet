@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="flex justify-content-center mb-5">
-      <pv-img src="https://i.ibb.co/V0FB0MQ/icon.png" />
+      <pv-img src="https://i.ibb.co/V0FB0MQ/icon.png" width="120" />
     </div>
     <div class="grid">
       <div class="col-5 flex justify-content-center">
@@ -105,7 +105,7 @@ export default {
             if (response.data.length !== 0) {
               localStorage.setItem('clientId', response.data[0].id.toString());
               noLogin = false;
-              this.$router.push("/shelterSection");
+              this.$router.push("/shelters");
             }
           })
 

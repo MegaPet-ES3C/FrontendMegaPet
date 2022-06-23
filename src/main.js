@@ -11,6 +11,8 @@ import "primeicons/primeicons.css";
 // PrimeFlex Companion
 import "primeflex/primeflex.css";
 
+
+import MultiSelect from "primevue/multiselect";
 import Fieldset from "primevue/fieldset";
 import Textarea from "primevue/textarea";
 import Steps from "primevue/steps";
@@ -52,6 +54,7 @@ app.use(PrimeVue, { ripple: true });
 app.use(ToastService);
 
 // PrimeVue Components
+app.component("pv-multi-select", MultiSelect);
 app.component("pv-field", Fieldset);
 app.component("pv-data-table", DataTable);
 app.component("pv-steps", Steps);

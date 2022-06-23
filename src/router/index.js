@@ -76,9 +76,9 @@ const router = createRouter({
       ]
     },
     {
-      path: "/shelterSection",
+      path: "/shelters",
       component: () => import("../shelter/pages/navigation-section.component.vue"),
-      redirect: "SearchSection",
+      redirect: "/searchPetsByShelters",
       children: [
         {
           path: "/shelterProfile",
@@ -86,9 +86,9 @@ const router = createRouter({
           component: () => import("../shelter/pages/shelterProfile-section.component.vue")
         },
         {
-          path: "/search",
+          path: "/searchPetsByShelters",
           name: "SearchSection",
-          component: () => import("../user/pages/search-section.component.vue")
+          component: () => import("../shelter/pages/shelterSearch-section.component.vue")
         },
         {
           path: "/shelter",

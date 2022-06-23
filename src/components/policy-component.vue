@@ -19,18 +19,22 @@
           Fusce quis luctus nibh. Nulla tempor, erat eget porta tincidunt, metus nisl mattis enim, at dapibus dui dui in ligula. In tristique feugiat placerat. Ut justo lorem, rhoncus ut posuere eget, maximus vel nisl. Nam consectetur faucibus elit, id lobortis sem accumsan a. Fusce eu justo tempus, consectetur turpis quis, euismod nibh. Duis faucibus fermentum ante vitae varius. Pellentesque sit amet volutpat libero.</p>
       </pv-field>
     </template>
-    <template v-slot:footer>
-      <div class="field-checkbox">
-        <pv-checkbox id="terms" name="terms" v-model="terms" />
-        <label for="terms">If you are agree with your terms, check the box</label>
+    <template v-slot:footer >
+      <div class="flex inline-block align-content-between justify-content-between">
+        <div class="field-checkbox">
+          <pv-checkbox id="terms" name="terms" v-model="terms" :binary="true" @click="disabled"/>
+          <label for="terms">If you are agree with your terms, check the box</label>
+        </div>
+        <pv-button
+            :disabled="terms === false"
+            label="Continue"
+            icon="pi pi-arrow-right"
+            iconPos="right"
+            @click="nextPage()"
+            class="p-button-text ml-8"
+        />
       </div>
-      <pv-button
-          label="Continue"
-          icon="pi pi-arrow-right"
-          iconPos="right"
-          @click="nextPage()"
-          class="p-button-text"
-      />
+
     </template>
   </pv-card>
 
@@ -40,12 +44,20 @@
 <script>
 export default {
   name: "policy-component",
+  data(){
+    return{
+      terms: false
+    }
+  },
   methods: {
     nextPage(){
       this.$emit("next-page",{
         formData:{},
         pageIndex: 1,
       })
+    },
+    disabled(){
+      this.terms = true;
     }
   }
 }
