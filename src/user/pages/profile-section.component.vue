@@ -36,7 +36,7 @@
             </div>
           </div>
         </div>
-        <pv-button icon = "pi pi-th-large" class="p-button-secondary" @click="Visualizer()"/>
+        <pv-button icon = "pi pi-th-large" class="p-button-secondary" @click="GetPet(3)"/>
       </div>
     </div>
   </div>
@@ -44,7 +44,35 @@
 
   <!-- Dialago del visualizador-->
 
+
   <pv-dialog v-model:visible="visualizerButton" :style="{width: '650px'}" header="Pets Adopted" :model="true" class="p-fluid">
+
+    <pv-data-view
+      :value="pets"
+      :layout="layout"
+      :paginator="true"
+      :rows="9">
+
+      <template #grid="slotProps">
+        <div class="col-12 md:col-4">
+          <div class="product-grid-item card">
+            <div class="product-grid-item-top">
+              <div>
+                <span class="product-category">{{
+                    slotProps.data.category
+                  }}</span>
+              </div>
+            </div>
+            <div class="product-grid-item-content">
+              <pv-img :src="slotProps.data.image" width="150" class="mt-5" preview/>
+              <div class="product-name">{{ slotProps.data.name }}</div>
+            </div>
+          </div>
+        </div>
+      </template>
+
+    </pv-data-view>
+
 
   </pv-dialog>
 
@@ -100,13 +128,13 @@
   </pv-dialog>
 
 
-
   </body>
 </template>
 
 <script>
 import { UsersApiService } from "../services/users-api.service";
 import { SheltersApiService } from "../../shelter/services/shelters-api.service";
+import { PetsApiService } from "../services/pets-api.service";
 
 export default {
   name: "profile-section.component",
@@ -115,17 +143,28 @@ export default {
       editInfoProfile:false,
       visualizerButton:false,
       submitted:false,
-      deleteChangeInfoProgile: false,
+      deleteChangeInfoProfile: false,
       user: null,
       shelter: null,
       userService: null,
-      shelterService: null
+      shelterService: null,
+
+      petsService:null,
+      pet: {  },
+      pets:[],
+      layout:"grid",
     };
   },
   created() {
     this.userService = new UsersApiService();
     this.userService.getById(localStorage.getItem("clientId")).then((response) => {
       this.user = response.data;
+      console.log("created");
+    });
+
+    this.petsService=new PetsApiService();
+    this.petsService.getAll().then((response) => {
+      this.pets = response.data;
       console.log("created");
     });
 
@@ -148,6 +187,28 @@ export default {
     Visualizer(){
       this.visualizerButton=true;
     },
+
+    GetPet(pet){
+      console.log(pet);
+      this.pet = {...pet};
+      console.log(this.pet);
+      this.visualizerButton=true;
+    },
+
+    getStorablePet(displayablePet, displayableAdopter){
+      return {
+        id: displayablePet.id,
+        name: displayablePet.name,
+        description: displayablePet.description,
+        image: displayablePet.image,
+        rescuedTime: displayablePet.rescuedTime,
+        category: displayablePet.category,
+        inventoryStatus: displayablePet.inventoryStatus,
+        rating: displayablePet.rating,
+        adopterId: displayableAdopter.id
+      }
+    },
+
     hideDialog(){
       this.editInfoProfile=false;
       this.submitted=false;

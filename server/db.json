@@ -161,10 +161,32 @@
       "email": "tucto32@gmail.com",
       "birthday": "2022-05-01T05:00:00.000Z",
       "password": "Miguel32"
+    },
+    {
+      "id": 6,
+      "name": "FernandorRar....",
+      "lastName": "Chorizo...",
+      "phone": "(051) 789-222-455",
+      "image": "https://images.pexels.com/photos/775358/pexels-photo-775358.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "email": "Choritastico@upc.edu.pe",
+      "birthday": "2022-07-06T06:00:00.000Z",
+      "password": "Choritastico1234",
+      "pets": [
+        "https://images.pexels.com/photos/1851164/pexels-photo-1851164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        ""
+      ]
     }
   ],
   "adopters": [
-
+    {
+      "id": 1,
+      "name": "Fernando",
+      "lastName": "ASSA",
+      "gender": "SA",
+      "age": "1213",
+      "status": "REico",
+      "description": "dasdklmn"
+    }
   ],
   "shelters": [
     {
