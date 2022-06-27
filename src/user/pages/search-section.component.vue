@@ -1,5 +1,9 @@
 <template>
-  <h1>Search Section</h1>
+  <div class="flex justify-content-between">
+    <h1>Search Section</h1>
+    <pv-button label="Add" class="h-2rem mt-3 mr-3 bg-blue-800 hover:bg-blue-500" icon="pi pi-plus" iconPos="left" @click="openAddPet"/>
+  </div>
+
   <div class="card">
 
     <pv-data-view
@@ -58,7 +62,7 @@
               >
               <pv-button
 
-                @click="openSubscriptionDialog"
+                @click="openDialog(slotProps.data)"
                 label="Help"
                 :disabled="slotProps.data.inventoryStatus === 'UNAVAILABLE'"
                 style="margin-bottom: 5px"
@@ -207,8 +211,8 @@
         </div>
       </div>
     </pv-dialog>
-    <pv-dialog header="Help Form" v-model:visible="displayHelpForm" :style="{ width: '450px' }" :modal="true" class="p-fluid" >
-      <label><b>Adopter choosed <i>{{ this.adopter.name }}</i> </b></label>
+    <pv-dialog header="Validating your request" v-model:visible="displayHelpForm" :style="{ width: '450px' }" :modal="true" class="p-fluid" >
+      <label><b>Adopter choosed by <i>{{ this.adopter.name }}</i> </b></label>
       <div class="field mt-4">
         <span class="p-float-label">
           <pv-input-text  type="text" id="name" v-model.trim="pet.name" required="true" :class="{ 'p-invalid': submitted && !pet.name }" disabled/>
@@ -277,9 +281,67 @@
       </div>
       <template #footer>
         <pv-button
-            label="No"
-            icon="pi pi-times"
-            @click="hideDialog"
+            label="Back"
+            icon="pi pi-arrow-left"
+            @click="backMethod"
+            class="p-button-text"
+        />
+        <pv-button
+            label="Yes"
+            icon="pi pi-check"
+            @click="savePetWithAdopter"
+            autofocus
+        />
+      </template>
+    </pv-dialog>
+    <pv-dialog header="Add Pet" v-model:visible="displayAddPet" :style="{ width: '450px' }" :modal="true" >
+      <div class="field mt-4 p-fluid">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.name" required="true" :class="{ 'p-invalid': submitted && !pet.name }"/>
+          <label for="name"> Name </label>
+        </span>
+      </div>
+      <div class="field mt-4 p-fluid">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.description" required="true" :class="{ 'p-invalid': submitted && !pet.description }"/>
+          <label for="description"> Description </label>
+        </span>
+      </div>
+      <div class="field mt-4 p-fluid">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.image" required="true" :class="{ 'p-invalid': submitted && !pet.image }"/>
+          <label for="image"> Image </label>
+        </span>
+      </div>
+      <div class="field mt-4 p-fluid">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.rescuedTime" required="true" :class="{ 'p-invalid': submitted && !pet.rescuedTime }"/>
+          <label for="rescuedTime"> Rescued Time </label>
+        </span>
+      </div>
+      <div class="field mt-4 p-fluid">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.category" required="true" :class="{ 'p-invalid': submitted && !pet.category }"/>
+          <label for="category"> Category </label>
+        </span>
+      </div>
+      <div class="field mt-4 p-fluid">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.inventoryStatus" required="true" :class="{ 'p-invalid': submitted && !pet.inventoryStatus }"/>
+          <label for="status"> Status  </label>
+        </span>
+      </div>
+      <div class="field mt-4 p-fluid">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.rating" required="true" :class="{ 'p-invalid': submitted && !pet.rating }"/>
+          <label for="rating"> Rating </label>
+        </span>
+      </div>
+      <template #footer>
+        <pv-button
+            label="Back"
+            icon="pi pi-arrow-left"
+            @click="displayAddPet = false"
             class="p-button-text"
         />
         <pv-button
@@ -315,6 +377,7 @@ export default {
       sortKey: null,
       sortKey2: null,
       filters: {},
+      displayAddPet: false,
       displayInformation: false,
       displayDescription: false,
       displayHelpForm: false,
@@ -419,6 +482,13 @@ export default {
       this.adopter = { ...adopter };
       console.log(adopter);
     },
+    openAddPet(pet){
+      this.displayAddPet = true;
+
+      console.log(pet);
+      this.pet = { ...pet };
+      console.log(this.pet);
+    },
     openSubscriptionDialog(adopter) {
       this.submitted = true;
       this.increase++;
@@ -443,7 +513,6 @@ export default {
           this.adopters.push(this.adopter);
 
         }
-        this.adopter = {};
 
         this.displayInformation = false;
         this.displayDescription = false;
@@ -460,7 +529,14 @@ export default {
     },
     savePetWithAdopter(){
       this.submitted = true;
-      if (this.pet.id){
+      if (this.pet.id.trim() &&
+          this.pet.name.trim() &&
+          this.pet.description.trim() &&
+          this.pet.image.trim() &&
+          this.pet.rescuedTime.trim() &&
+          this.pet.category.trim() &&
+          this.pet.inventoryStatus.trim() &&
+          this.pet.rating.trim()){
         this.pet = this.getStorablePet(this.pet, this.adopter);
         this.petsService.update(this.pet.id, this.pet)
         this.displayHelpForm = false;
@@ -477,7 +553,7 @@ export default {
       this.adopter = {};
       this.pet = {};
       this.displayHelpForm = false;
-
+      this.displayAddPet = false;
     },
     closeDescription() {
       this.displayDescription = false;
@@ -488,7 +564,8 @@ export default {
       };
     },
     backMethod() {
-      window.history.back();
+      this.displayInformation = true;
+      this.displayHelpForm = false;
     }
   },
 };

@@ -1,5 +1,6 @@
 <template>
-  <pv-button label="Nuevo" icon="pi pi-plus" @click="displayBasic = true"/>
+  <!--<pv-button label="Nuevo" icon="pi pi-plus" @click="displayBasic = true"/>-->
+  <h1>Shelter Section</h1>
   <pv-dialog  v-model:visible="displayBasic" >
     <template #header>
       <h3>Header</h3>
@@ -125,6 +126,10 @@ export default {
 </script>
 
 <style scoped>
+h1{
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI';
+  font-size: 2.5rem;
+}
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

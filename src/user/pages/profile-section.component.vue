@@ -1,4 +1,5 @@
 <template>
+  <h1>Profile Section</h1>
   <body class="card">
 
   <div class="Profile bg-light-blue-lighten-4">
@@ -277,7 +278,10 @@ export default {
 
 <style scoped>
 
-
+h1{
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI';
+  font-size: 2.5rem;
+}
 
 *{
   margin: 0;
