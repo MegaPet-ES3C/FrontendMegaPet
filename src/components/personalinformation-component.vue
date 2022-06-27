@@ -34,10 +34,10 @@
             </pv-password>
           </div>
           <div class="flex align-items-center justify-content-center mt-5"  >
-            <pv-input-text placeholder="URL-Image " v-model.trim="shelter.image" />
+            <pv-input-text placeholder="URL - Image " v-model.trim="shelter.image" />
           </div>
           <div class="flex align-items-center justify-content-center mt-5"  >
-            <pv-input-text placeholder="URL-WebPage " v-model.trim="shelter.url" />
+            <pv-input-text placeholder="URL - WebPage " v-model.trim="shelter.url" />
           </div>
           <div class="flex align-items-center justify-content-center mt-5">
             <pv-text-area placeholder="---------Put some description about your organization----------" v-model.trim="shelter.description" rows="10" cols="30" />
