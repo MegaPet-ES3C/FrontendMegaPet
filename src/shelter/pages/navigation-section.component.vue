@@ -28,7 +28,7 @@ export default {
       items: [
         { label: "Profile", to: "/shelterProfile" },
         { label: "Search", to: "/searchPetsByShelters" },
-        { label: "Shelter", to: "/shelter"},
+        { label: "Shelter", to: "/shelters"},
       ],
     };
   },

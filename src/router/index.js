@@ -91,9 +91,9 @@ const router = createRouter({
           component: () => import("../shelter/pages/shelterSearch-section.component.vue")
         },
         {
-          path: "/shelter",
+          path: "/shelters",
           name: "Shelter",
-          component: () => import("../shelter/pages/shelter-section.component.vue")
+          component: () => import("../shelter/pages/sheltersProfile-section.component.vue")
         },
       ]
     }

@@ -109,6 +109,9 @@
       "inventoryStatus": "UNAVAILABLE",
       "rating": 5,
       "adopterId": 2
+    },
+    {
+      "id": 11
     }
   ],
   "users": [

@@ -1,5 +1,8 @@
 <template>
-  <h1>Search Section</h1>
+  <div class="flex justify-content-between">
+    <h1>Search Section</h1>
+    <pv-button label="Add" class="h-2rem mt-3 mr-3 bg-blue-800 hover:bg-blue-500" icon="pi pi-plus" iconPos="left" @click="openAddPet"/>
+  </div>
   <div class="card">
 
     <pv-data-view
@@ -289,6 +292,64 @@
         />
       </template>
     </pv-dialog>
+    <pv-dialog header="Add Pet" v-model:visible="displayAddPet" :style="{ width: '450px' }" :modal="true" >
+      <div class="field mt-4 p-fluid">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.name" required="true" :class="{ 'p-invalid': submitted && !pet.name }"/>
+          <label for="name"> Name </label>
+        </span>
+      </div>
+      <div class="field mt-4 p-fluid">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.description" required="true" :class="{ 'p-invalid': submitted && !pet.description }"/>
+          <label for="description"> Description </label>
+        </span>
+      </div>
+      <div class="field mt-4 p-fluid">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.image" required="true" :class="{ 'p-invalid': submitted && !pet.image }"/>
+          <label for="image"> Image </label>
+        </span>
+      </div>
+      <div class="field mt-4 p-fluid">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.rescuedTime" required="true" :class="{ 'p-invalid': submitted && !pet.rescuedTime }"/>
+          <label for="rescuedTime"> Rescued Time </label>
+        </span>
+      </div>
+      <div class="field mt-4 p-fluid">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.category" required="true" :class="{ 'p-invalid': submitted && !pet.category }"/>
+          <label for="category"> Category </label>
+        </span>
+      </div>
+      <div class="field mt-4 p-fluid">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.inventoryStatus" required="true" :class="{ 'p-invalid': submitted && !pet.inventoryStatus }"/>
+          <label for="status"> Status  </label>
+        </span>
+      </div>
+      <div class="field mt-4 p-fluid">
+        <span class="p-float-label">
+          <pv-input-text  type="text" id="name" v-model.trim="pet.rating" required="true" :class="{ 'p-invalid': submitted && !pet.rating }"/>
+          <label for="rating"> Rating </label>
+        </span>
+      </div>
+      <template #footer>
+        <pv-button
+            label="Back"
+            icon="pi pi-arrow-left"
+            @click="displayAddPet = false"
+            class="p-button-text"
+        />
+        <pv-button
+            label="Yes"
+            icon="pi pi-check"
+            @click="savePetWithAdopter"
+            autofocus
+        />
+      </template>
+    </pv-dialog>
   </div>
 </template>
 
@@ -314,6 +375,7 @@ export default {
       sortKey: null,
       sortKey2: null,
       filters: {},
+      displayAddPet: false,
       displayInformation: false,
       displayDescription: false,
       displayHelpForm: false,
@@ -477,6 +539,13 @@ export default {
       this.pet = {};
       this.displayHelpForm = false;
 
+    },
+    openAddPet(pet){
+      this.displayAddPet = true;
+
+      console.log(pet);
+      this.pet = { ...pet };
+      console.log(this.pet);
     },
     closeDescription() {
       this.displayDescription = false;
