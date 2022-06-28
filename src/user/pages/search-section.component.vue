@@ -253,7 +253,7 @@
       </div>
       <div class="field mt-4">
         <span class="p-float-label">
-           <pv-input-text  type="text" id="name" v-model="adopter.id" required="true" :class="{ 'p-invalid': submitted && !adopter.id }" disabled/>
+           <pv-input-text  type="text" id="name" v-model="user.id" required="true" :class="{ 'p-invalid': submitted && !user.id }" disabled/>
           <label for="rating"> AdopterID </label>
 
           <!--<pv-multi-select v-model="this.adoptersService.adopters" :options="adopters" optionLabel="name" placeholder="Select Adopter" :filter="true" class="multiselect-custom" selectionLimit=1>
@@ -297,6 +297,7 @@
 import { PetsApiService } from "../services/pets-api.service";
 import { AdoptersApiService } from "../../adopter/services/adopters-api.service";
 import {FilterMatchMode} from "primevue/api";
+import { UsersApiService } from "../services/users-api.service";
 
 export default {
   name: "search-section",
@@ -304,6 +305,7 @@ export default {
     return {
       pets: [],
       pet: {},
+      user: null,
       adopter: {},
       adopters: [],
       increase: 0,
@@ -332,6 +334,13 @@ export default {
     };
   },
   created() {
+  
+    this.userService = new UsersApiService();
+    this.userService.getById(localStorage.getItem("clientId")).then((response) => {
+      this.user = response.data;
+      console.log("created");
+    });
+  
     this.petsService = new PetsApiService();
     this.adoptersService = new AdoptersApiService();
 
