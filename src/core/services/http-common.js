@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-    baseURL: `https://megapet.azurewebsites.net/api/v1/`,
+    baseURL: `http://localhost:8080/api/v1`,
   headers: {
       'content-type': 'application/json',
       'Access-Control-Allow-Origin' : '*',
